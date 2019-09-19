@@ -19,6 +19,24 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity android:name=".UnderDevelopment"
+            android:parentActivityName=".AccActivity"></activity>
+        <activity
+            android:name=".activity_Order_del_update"
+            android:parentActivityName=".OrderMain" />
+        <activity
+            android:name=".OrderAdd"
+            android:parentActivityName=".OrderMain" />
+        <activity
+            android:name=".OrderMain"
+            android:parentActivityName=".AccActivity" />
+        <activity android:name=".AccActivity"
+            android:parentActivityName=".MainActivity">
+         </activity>
+        <activity
+            android:name=".ViewActivity"
+            android:parentActivityName=".MainActivity" />
     </application>
 
 </manifest>

@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -27,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
     private FirebaseAuth.AuthStateListener authStateListener;
     private EditText emailText;
     private EditText passText;
-
+    private Button btnOpen;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,9 +37,19 @@ public class MainActivity extends AppCompatActivity {
 
         emailText = (EditText) findViewById(R.id.email);
         passText = (EditText) findViewById(R.id.password);
+        btnOpen=(Button) findViewById(R.id.btnOpen);
 
         mAuth = FirebaseAuth.getInstance();
         mDatabase = FirebaseDatabase.getInstance().getReference().child("Users");
+
+
+        btnOpen.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(MainActivity.this,AccActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
 
