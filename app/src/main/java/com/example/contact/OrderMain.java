@@ -49,12 +49,13 @@ public class OrderMain extends AppCompatActivity {
 //    }
 
     //custom back button activity ,i used this for get icon default color.
-    @Override
-    public void onBackPressed()
-    {
-        startActivity(new Intent(this, AccActivity.class));
-        finish();
-    }
+
+//    @Override
+//    public void onBackPressed()
+//    {
+//       // startActivity(new Intent(this, AccActivity.class));
+//        //finish();
+//    }
     //end
 
     @Override

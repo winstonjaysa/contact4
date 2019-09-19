@@ -114,7 +114,7 @@ public class activity_Order_del_update extends AppCompatActivity {
                 orderDetails.setStatus(extStatus.getText().toString());
 
                 if (extStatus.getText().toString().equals("1")) {
-                    //mUpdate.setClickable(false);
+                    mUpdate.setClickable(false);
                     Toast.makeText(getApplicationContext(), "You can't update this order.", Toast.LENGTH_SHORT).show();
                 } else if (extStatus.getText().toString().equals("0")) {
                     new FirebaseDatabaseHelper().updateOrder(key, orderDetails, new FirebaseDatabaseHelper.DataStatus() {
