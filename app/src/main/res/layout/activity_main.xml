@@ -23,36 +23,6 @@
             android:layout_height="wrap_content">
 
 
-
-            <LinearLayout
-                android:id="@+id/linearLayout1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/colorPrimary"
-                android:gravity="center_horizontal"
-                android:orientation="vertical">
-
-
-                <ImageView
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:layout_marginTop="20dp"
-                    android:background="@drawable/circle"
-                    android:padding="10dp"
-                    android:src="@drawable/img_authentication"
-                    android:tint="@color/white" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="20dp"
-                    android:layout_marginTop="10dp"
-                    android:fontFamily="sans-serif-medium"
-                    android:text="LOGIN"
-                    android:textColor="@color/white"
-                    android:textSize="22sp" />
-            </LinearLayout>
-
             <ImageView
                 android:id="@+id/imageView1"
                 android:layout_width="20dp"
