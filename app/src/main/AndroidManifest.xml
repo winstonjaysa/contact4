@@ -9,19 +9,20 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".frontpage"></activity>
+        <activity android:name=".locationlist"></activity>
+        <activity android:name=".MainActivity" />
         <activity android:name=".RegisterActivity" />
         <activity android:name=".NewActivity" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".frontpage">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name=".UnderDevelopment"
-            android:parentActivityName=".AccActivity"></activity>
+        <activity
+            android:name=".UnderDevelopment"
+            android:parentActivityName=".AccActivity" />
         <activity
             android:name=".activity_Order_del_update"
             android:parentActivityName=".OrderMain" />
@@ -31,9 +32,9 @@
         <activity
             android:name=".OrderMain"
             android:parentActivityName=".AccActivity" />
-        <activity android:name=".AccActivity"
-            android:parentActivityName=".MainActivity">
-         </activity>
+        <activity
+            android:name=".AccActivity"
+            android:parentActivityName=".MainActivity"></activity>
         <activity
             android:name=".ViewActivity"
             android:parentActivityName=".MainActivity" />

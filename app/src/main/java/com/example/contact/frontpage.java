@@ -14,9 +14,19 @@ public class frontpage extends AppCompatActivity {
         setContentView(R.layout.activity_frontpage);
     }
 
-    public void button1(View view){
+    public void register(View view){
 
         Intent loginIntent = new Intent(this,RegisterActivity.class);
+        loginIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(loginIntent);
+
+
+
+    }
+
+    public void login(View view){
+
+        Intent loginIntent = new Intent(this,MainActivity.class);
         loginIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(loginIntent);
 

@@ -11,6 +11,7 @@
     <string name="delete">delete</string>
     <string name="amount">Amount :</string>
     <string name="this_page_is_currently_under_n_development">This page is currently under   development</string>
+    <string name="Slogan">the great advantage of a hotel is that it is a refuge from home life</string>
 
     <string-array name="meal">
         <item>Pizza</item>
