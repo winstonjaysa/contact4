@@ -6,6 +6,20 @@
     android:layout_height="match_parent"
     tools:context=".RegisterActivity">
 
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="500dp"
+        android:layout_centerInParent="true"
+        android:layout_marginBottom="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="20dp"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="3dp"
+        app:cardPreventCornerOverlap="false"
+        app:cardUseCompatPadding="true">
+
     <RelativeLayout
 
         android:layout_width="match_parent"
@@ -210,6 +224,6 @@
     </RelativeLayout>
 
 
-
+    </androidx.cardview.widget.CardView>
 
 </RelativeLayout>
