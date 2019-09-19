@@ -7,18 +7,7 @@
     android:layout_height="match_parent"
     tools:context=".frontpage">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="30dp"
-        android:textColor="@color/colorPrimary1"
-        android:fontFamily="serif"
-        android:text="Hotel dolc vita"
-        android:layout_marginLeft="80dp"
-        android:layout_marginTop="180dp"
-        android:id="@+id/tv"
-        ></TextView>
-
+   
     <Button
         android:layout_width="250dp"
         android:layout_height="wrap_content"
