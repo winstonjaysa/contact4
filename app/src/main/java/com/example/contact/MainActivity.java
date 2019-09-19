@@ -95,13 +95,4 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void signup(View view){
-
-        Intent loginIntent = new Intent(MainActivity.this,RegisterActivity.class);
-        loginIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
-        startActivity(loginIntent);
-
-
-
-    }
 }
