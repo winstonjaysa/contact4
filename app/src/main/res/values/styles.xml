@@ -12,4 +12,12 @@
           <item name="colorAccent">@color/colorAccent</item>
       </style>
 
+    <style name="ThemeSpinner">
+        <!-- Color when pressed -->
+        <item name="colorAccent">#ffa000</item>
+        <!-- Default color for the dropdown arrow and line -->
+        <item name="colorControlNormal">#ffc107</item>
+        <item name="color" state_checked="true">#EEECEC</item>
+    </style>
+
   </resources>

@@ -15,8 +15,10 @@
     <item >
         <shape >
             <corners android:radius="20dp"/>
-            <solid android:color="#fe435b "/>
-
+            <gradient android:angle="360"
+                android:type="linear"
+                android:startColor="@color/colorSecondary"
+                android:endColor="@color/colorSecondaryDark"/>
         </shape>
 
     </item>

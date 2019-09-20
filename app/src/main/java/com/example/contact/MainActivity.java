@@ -1,6 +1,7 @@
 package com.example.contact;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -41,6 +42,11 @@ public class MainActivity extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
         mDatabase = FirebaseDatabase.getInstance().getReference().child("Users");
+
+        ActionBar actionBar=getSupportActionBar();
+            if(actionBar!=null){
+                actionBar.setBackgroundDrawable(getResources().getDrawable(R.drawable.gradiant_action_bar));
+            }
 
 
         btnOpen.setOnClickListener(new View.OnClickListener() {
@@ -105,5 +111,13 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+
+    @Override
+    public void onBackPressed()
+    {
+//       // startActivity(new Intent(this, AccActivity.class));
+        //finish();
+        moveTaskToBack(true);
+  }
 
 }
