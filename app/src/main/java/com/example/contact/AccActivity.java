@@ -78,7 +78,7 @@ public class AccActivity extends AppCompatActivity {
         li_order.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                txt_icon_order.setTextColor(Color.parseColor("#fe435b"));
+                //txt_icon_order.setTextColor(Color.parseColor("#fe435b"));
                 Intent intent=new Intent(AccActivity.this,OrderMain.class);
                 startActivity(intent);
             }
@@ -86,7 +86,7 @@ public class AccActivity extends AppCompatActivity {
         li_room.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                txt_icon_room.setTextColor(Color.parseColor("#fe435b"));
+                //txt_icon_room.setTextColor(Color.parseColor("#fe435b"));
                 Intent intent=new Intent(AccActivity.this,MainActivity.class);
                 startActivity(intent);
             }
@@ -94,7 +94,7 @@ public class AccActivity extends AppCompatActivity {
         li_travel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                txt_icon_travel.setTextColor(Color.parseColor("#fe435b"));
+                //txt_icon_travel.setTextColor(Color.parseColor("#fe435b"));
                 Intent intent=new Intent(AccActivity.this, UnderDevelopment.class);
                 startActivity(intent);
 
@@ -106,7 +106,7 @@ public class AccActivity extends AppCompatActivity {
         li_laundry.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                txt_icon_laundry.setTextColor(Color.parseColor("#fe435b"));
+                //txt_icon_laundry.setTextColor(Color.parseColor("#fe435b"));
                 Intent intent=new Intent(AccActivity.this, UnderDevelopment.class);
                 startActivity(intent);
             }
@@ -114,7 +114,7 @@ public class AccActivity extends AppCompatActivity {
         li_bill.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                txt_icon_bill.setTextColor(Color.parseColor("#fe435b"));
+                //txt_icon_bill.setTextColor(Color.parseColor("#fe435b"));
                 Intent intent=new Intent(AccActivity.this, UnderDevelopment.class);
                 startActivity(intent);
             }

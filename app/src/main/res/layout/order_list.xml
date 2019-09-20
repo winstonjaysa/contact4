@@ -5,21 +5,23 @@
     android:id="@+id/orderItemLay"
     android:layout_width="match_parent"
     android:layout_height="120dp"
-    android:layout_marginLeft="10dp"
     android:layout_marginTop="5dp"
-    android:layout_marginRight="10dp"
     android:layout_marginBottom="3dp"
-    android:background="#f5f3f4"
+    android:background="#343434"
     android:orientation="vertical">
 
+    //android:layout_marginRight="10dp"
+    //android:layout_marginLeft="10dp"
     <TextView
+        android:fontFamily="sans-serif-thin"
+
         android:id="@+id/txtview_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginBottom="32dp"
+        android:layout_marginBottom="52dp"
         android:text="meal-Type"
-        android:textColor="#FFFFFF"
+        android:textColor="#fff"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -29,9 +31,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginBottom="12dp"
+        android:layout_marginBottom="30dp"
+        android:fontFamily="sans-serif-light"
         android:text="mAmount"
-        android:textColor="#FFFFFF"
+        android:textColor="#fff"
         android:textStyle="italic"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textView" />
@@ -42,9 +45,10 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:text="time"
-        android:textAllCaps="true"
-        android:textColor="#FFFFFF"
+        android:fontFamily="sans-serif-smallcaps"
+
+        android:text="Time"
+        android:textColor="#fff"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
@@ -54,25 +58,31 @@
         android:id="@+id/txtview_uname"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="22dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="12dp"
+        android:fontFamily="sans-serif-medium"
         android:text="date"
         android:textAllCaps="false"
-        android:textColor="#FFFFFF"
+        android:textColor="#fff"
         android:typeface="monospace"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="28dp"
-        android:layout_marginBottom="12dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="32dp"
+        android:fontFamily="sans-serif-light"
         android:text="@string/amount"
-        android:textColor="#9FFFFFFF"
+        android:textColor="#fff"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtview_name" />
 
     <ImageView
         android:id="@+id/passdate"
@@ -92,8 +102,8 @@
         android:id="@+id/pastdate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="76dp"
-        android:layout_marginBottom="12dp"
+        android:layout_marginEnd="156dp"
+        android:layout_marginBottom="10dp"
         android:background="@drawable/round_corners_button"
         android:paddingLeft="10dp"
         android:paddingTop="3dp"
@@ -114,5 +124,17 @@
         app:layout_constraintHorizontal_bias="0.958"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/meal_pic"
+        android:layout_width="120dp"
+        android:layout_height="match_parent"
+        android:foregroundGravity="left"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:scaleType="centerCrop"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

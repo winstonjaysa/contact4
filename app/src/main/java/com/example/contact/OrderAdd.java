@@ -1,6 +1,7 @@
 package com.example.contact;
 
 import android.app.DatePickerDialog;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextUtils;
@@ -16,6 +17,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.database.DataSnapshot;
@@ -42,6 +44,12 @@ public class OrderAdd extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_order_add);
 
+        //customize action bar
+        ActionBar actionBar=getSupportActionBar();
+        if(actionBar!=null){
+            actionBar.setBackgroundDrawable(getResources().getDrawable(R.drawable.gradiant_action_bar));
+        }
+        //end
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle("Add order");
 
@@ -97,6 +105,7 @@ public class OrderAdd extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 time_selected=adapterView.getItemAtPosition(i).toString();
+               // ((TextView) adapterView.getChildAt(0)).setTextColor(Color.parseColor("#b911bc"));
             }
 
             @Override

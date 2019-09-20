@@ -3,10 +3,10 @@ package com.example.contact;
 import android.app.DatePickerDialog;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -39,6 +39,7 @@ public class RecyclerView_Config {
         private String key;
 
         ConstraintLayout orderItemLay;
+        ImageView meal_pic;
 
         public OrderItemView(ViewGroup parent){
             super(LayoutInflater.from(mContext).inflate(R.layout.order_list,parent,false));
@@ -51,6 +52,7 @@ public class RecyclerView_Config {
             txtStatus=(TextView)itemView.findViewById(R.id.txtStatus);
 
             orderItemLay=(ConstraintLayout) itemView.findViewById(R.id.orderItemLay);
+            meal_pic=(ImageView) itemView.findViewById(R.id.meal_pic);
 
 
                 itemView.setOnClickListener(new View.OnClickListener() {
@@ -89,13 +91,23 @@ public class RecyclerView_Config {
 
             if(orderDetails.getTime().equals("Breakfast")){
                 //mTime.setTextColor(Color.parseColor("#fe435b"));
-                orderItemLay.setBackgroundColor(Color.parseColor("#fe7b45"));
+                //orderItemLay.setBackgroundColor(Color.parseColor("#fe7b45"));
             }else if(orderDetails.getTime().equals("Launch")){
-                orderItemLay.setBackgroundColor(Color.parseColor("#289cda"));
+                //orderItemLay.setBackgroundColor(Color.parseColor("#289cda"));
             }else if(orderDetails.getTime().equals("Tea")){
-                orderItemLay.setBackgroundColor(Color.parseColor("#01d5b1"));
+                //orderItemLay.setBackgroundColor(Color.parseColor("#01d5b1"));
             }else if(orderDetails.getTime().equals("Dinner")){
-                orderItemLay.setBackgroundColor(Color.parseColor("#f3b163"));
+                //orderItemLay.setBackgroundColor(Color.parseColor("#f3b163"));
+            }
+
+            if(orderDetails.getName().equals("Pizza")){
+                meal_pic.setBackgroundResource(R.drawable.grilled_pizza);
+            }else if(orderDetails.getName().equals("Cup Cake")){
+                meal_pic.setBackgroundResource(R.drawable.buttercream_and_cupcakes);
+            }else if(orderDetails.getName().equals("BBQ")){
+                meal_pic.setBackgroundResource(R.drawable.baked_bbq_chicken_1);
+            }else if(orderDetails.getName().equals("Tacos")){
+                meal_pic.setBackgroundResource(R.drawable.vegan_tacos);
             }
         }
     }

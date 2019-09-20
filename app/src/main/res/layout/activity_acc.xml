@@ -143,25 +143,31 @@
                     <TextView
                         android:id="@+id/txt_icon_order"
                         android:layout_width="40dp"
-                        android:layout_height="match_parent"
+                        android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:gravity="center"
+                        android:layout_gravity="center"
+                        android:gravity="left"
                         android:text="TextView"
+                        android:textColor="@drawable/button_text_color"
                         android:textSize="25sp" />
 
                     <TextView
                         android:layout_width="270dp"
                         android:layout_height="wrap_content"
                         android:text="ORDER"
-                        android:textSize="15sp" />
+                        android:layout_gravity="center"
+                        android:textColor="@drawable/button_text_color"
+                        android:textSize="13sp" />
 
                     <TextView
                         android:id="@+id/tx2"
                         android:layout_width="40dp"
                         android:layout_height="wrap_content"
+                        android:layout_gravity="center"
                         android:layout_weight="1"
                         android:gravity="end"
                         android:paddingRight="12dp"
+                        android:textColor="@drawable/button_text_color"
                         android:text="TextView" />
 
 
@@ -179,25 +185,31 @@
                     <TextView
                         android:id="@+id/txt_icon_room"
                         android:layout_width="40dp"
-                        android:layout_height="match_parent"
+                        android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:gravity="center"
+                        android:layout_gravity="center"
+                        android:gravity="left"
                         android:text="TextView"
+                        android:textColor="@drawable/button_text_color"
                         android:textSize="25sp" />
 
                     <TextView
                         android:layout_width="270dp"
                         android:layout_height="wrap_content"
+                        android:layout_gravity="center"
                         android:text="ROOM"
-                        android:textSize="15sp" />
+                        android:textColor="@drawable/button_text_color"
+                        android:textSize="13sp" />
 
                     <TextView
                         android:id="@+id/tx4"
                         android:layout_width="40dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:layout_gravity="center"
                         android:gravity="end"
                         android:paddingRight="12dp"
+                        android:textColor="@drawable/button_text_color"
                         android:text="TextView" />
 
                 </LinearLayout>
@@ -216,23 +228,29 @@
                         android:layout_width="40dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:gravity="center"
+                        android:layout_gravity="center"
+                        android:gravity="left"
                         android:text="TextView"
+                        android:textColor="@drawable/button_text_color"
                         android:textSize="25sp" />
 
                     <TextView
                         android:layout_width="270dp"
                         android:layout_height="wrap_content"
+                        android:layout_gravity="center"
                         android:text="TRAVEL"
-                        android:textSize="15sp" />
+                        android:textColor="@drawable/button_text_color"
+                        android:textSize="13sp" />
 
                     <TextView
                         android:id="@+id/tx6"
                         android:layout_width="40dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:layout_gravity="center"
                         android:gravity="end"
                         android:paddingRight="12dp"
+                        android:textColor="@drawable/button_text_color"
                         android:text="TextView" />
 
                 </LinearLayout>
@@ -251,23 +269,29 @@
                         android:layout_width="40dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:gravity="center"
+                        android:layout_gravity="center"
+                        android:gravity="left"
                         android:text="TextView"
+                        android:textColor="@drawable/button_text_color"
                         android:textSize="25sp" />
 
                     <TextView
                         android:layout_width="270dp"
                         android:layout_height="wrap_content"
+                        android:layout_gravity="center"
                         android:text="LAUNDRY"
-                        android:textSize="15sp" />
+                        android:textColor="@drawable/button_text_color"
+                        android:textSize="13sp" />
 
                     <TextView
                         android:id="@+id/tx10"
                         android:layout_width="40dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:layout_gravity="center"
                         android:gravity="end"
                         android:paddingRight="12dp"
+                        android:textColor="@drawable/button_text_color"
                         android:text="TextView" />
 
                 </LinearLayout>
@@ -286,23 +310,31 @@
                         android:layout_width="40dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:gravity="center"
+                        android:layout_gravity="center"
+                        android:gravity="left"
                         android:text="TextView"
-                        android:textSize="25sp" />
+                        android:textSize="25sp"
+                        android:textColor="@drawable/button_text_color"
+                        android:paddingLeft="8dp"
+                        />
 
                     <TextView
                         android:layout_width="270dp"
                         android:layout_height="wrap_content"
+                        android:layout_gravity="center"
                         android:text="BILL"
-                        android:textSize="15sp" />
+                        android:textColor="@drawable/button_text_color"
+                        android:textSize="13sp" />
 
                     <TextView
                         android:id="@+id/tx8"
                         android:layout_width="40dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:layout_gravity="center"
                         android:gravity="end"
                         android:paddingRight="12dp"
+                        android:textColor="@drawable/button_text_color"
                         android:text="TextView" />
 
                 </LinearLayout>
