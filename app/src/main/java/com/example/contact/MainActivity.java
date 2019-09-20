@@ -123,6 +123,7 @@ public class MainActivity extends AppCompatActivity {
 
         Intent forgotIntent = new Intent(MainActivity.this,forgotpass.class);
         startActivity(forgotIntent);
+        //
 
 
     }
