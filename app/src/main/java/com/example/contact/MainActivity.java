@@ -119,4 +119,12 @@ public class MainActivity extends AppCompatActivity {
        // moveTaskToBack(true);
     }
 
+    public void forgotpass(View view){
+
+        Intent forgotIntent = new Intent(MainActivity.this,forgotpass.class);
+        startActivity(forgotIntent);
+
+
+    }
+
 }

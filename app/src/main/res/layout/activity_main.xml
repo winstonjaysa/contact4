@@ -170,7 +170,8 @@
                     android:text="Forgot Password?"
                     android:textAllCaps="false"
                     android:textColor="@color/textColor"
-                    android:textSize="13sp" />
+                    android:textSize="13sp"
+                    android:onClick="forgotpass"/>
 
             </RelativeLayout>
 
