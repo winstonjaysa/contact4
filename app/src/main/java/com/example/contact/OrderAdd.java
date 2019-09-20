@@ -81,7 +81,7 @@ public class OrderAdd extends AppCompatActivity {
 
 
         //meal spinner list
-        ArrayAdapter<CharSequence> adapter=ArrayAdapter.createFromResource(this,R.array.meal,android.R.layout.simple_spinner_item);
+        ArrayAdapter<CharSequence> adapter=ArrayAdapter.createFromResource(this,R.array.meal,R.layout.custom_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner_meal.setAdapter(adapter);
         spinner_meal.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -98,7 +98,7 @@ public class OrderAdd extends AppCompatActivity {
         //end of meal spinner list
 
         //time spinner list
-        ArrayAdapter<CharSequence> adapter2=ArrayAdapter.createFromResource(this,R.array.time,android.R.layout.simple_spinner_item);
+        ArrayAdapter<CharSequence> adapter2=ArrayAdapter.createFromResource(this,R.array.time,R.layout.custom_spinner_item);
         adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner_time.setAdapter(adapter2);
         spinner_time.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {

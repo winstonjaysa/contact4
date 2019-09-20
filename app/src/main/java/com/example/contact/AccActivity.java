@@ -66,6 +66,13 @@ public class AccActivity extends AppCompatActivity {
         ImageView imgview=(ImageView) findViewById(R.id.img1);
 
 
+        navi_txt_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(AccActivity.this,MainActivity.class);
+                startActivity(intent);
+            }
+        });
 
         navi_txt_menu.setOnClickListener(new View.OnClickListener() {
             @Override

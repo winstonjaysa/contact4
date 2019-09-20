@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
@@ -31,10 +32,14 @@ public class MainActivity extends AppCompatActivity {
     private EditText passText;
     private Button btnOpen;
 
+    boolean doubleBackToExitPressedOnce = false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
 
         emailText = (EditText) findViewById(R.id.email);
         passText = (EditText) findViewById(R.id.password);
@@ -117,7 +122,24 @@ public class MainActivity extends AppCompatActivity {
     {
 //       // startActivity(new Intent(this, AccActivity.class));
         //finish();
-        moveTaskToBack(true);
+
+        //moveTaskToBack(true);
+
+        if (doubleBackToExitPressedOnce) {
+            super.onBackPressed();
+            return;
+        }
+
+        this.doubleBackToExitPressedOnce = true;
+        Toast.makeText(this, "Please click BACK again to exit", Toast.LENGTH_SHORT).show();
+
+        new Handler().postDelayed(new Runnable() {
+
+            @Override
+            public void run() {
+                doubleBackToExitPressedOnce=false;
+            }
+        }, 2000);
   }
 
 }
