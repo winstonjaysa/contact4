@@ -63,6 +63,15 @@ public class NewActivity extends AppCompatActivity {
         };
     }
 
+    @Override
+    public void onBackPressed()
+    {
+//       // startActivity(new Intent(this, AccActivity.class));
+        //finish();
+        // moveTaskToBack(true);
+    }
+
+
 
     public void sendbtnclicked(View view) {
 
@@ -103,9 +112,9 @@ public class NewActivity extends AppCompatActivity {
     public void signOut(View view) {
 
         //    mAuth = FirebaseAuth.getInstance();
-        mAuth.signOut();
-        Intent intent1 = new Intent(this, MainActivity.class);
-        intent1.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+     //   mAuth.signOut();
+        Intent intent1 = new Intent(this, frontpage.class);
+        //intent1.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent1);
 
 

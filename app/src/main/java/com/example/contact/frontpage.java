@@ -33,4 +33,12 @@ public class frontpage extends AppCompatActivity {
 
 
     }
+
+    @Override
+    public void onBackPressed()
+    {
+//       // startActivity(new Intent(this, AccActivity.class));
+        //finish();
+        //moveTaskToBack(true);
+    }
 }

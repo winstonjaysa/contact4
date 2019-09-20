@@ -1,12 +1,14 @@
 package com.example.contact;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -23,6 +25,7 @@ public class RegisterActivity extends AppCompatActivity {
     private EditText nameField;
     private EditText emailField;
     private EditText passField;
+    private CheckBox checkBox;
     private FirebaseAuth mAuth;
     private DatabaseReference mDatabase;
 
@@ -34,18 +37,29 @@ public class RegisterActivity extends AppCompatActivity {
         nameField = (EditText) findViewById(R.id.name);
         emailField = (EditText) findViewById(R.id.email);
         passField = (EditText) findViewById(R.id.password);
+        checkBox = (CheckBox) findViewById(R.id.cb);
 
         mAuth = FirebaseAuth.getInstance();
         mDatabase = FirebaseDatabase.getInstance().getReference().child("Users");
+
+        ActionBar actionBar = getSupportActionBar();
     }
+
+    @Override
+    public void onBackPressed()
+    {
+
+    }
+
 
     public void  Registerbtnclicked (View view){
 
         final String name = nameField.getText().toString().trim();
         String email = emailField.getText().toString().trim();
         String password = passField.getText().toString().trim();
+        if(!TextUtils.isEmpty(name) && !TextUtils.isEmpty(email) && !TextUtils.isEmpty(password) && checkBox.isChecked()){
 
-        if(!TextUtils.isEmpty(name) && !TextUtils.isEmpty(email) && !TextUtils.isEmpty(password)){
+
 
             mAuth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                 @Override
@@ -67,7 +81,12 @@ public class RegisterActivity extends AppCompatActivity {
                 }
             });
         }
+        else{
+            Toast.makeText(this,"Cant have empty fields",Toast.LENGTH_LONG).show();
+        }
 
     }
+
+
 
 }

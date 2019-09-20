@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -98,6 +99,7 @@ public class MainActivity extends AppCompatActivity {
 
                 Intent loginIntent = new Intent(MainActivity.this,NewActivity.class);
                 startActivity(loginIntent);
+
             }
         }
 
@@ -108,16 +110,13 @@ public class MainActivity extends AppCompatActivity {
     });
 
 
-
-
     }
-
     @Override
     public void onBackPressed()
     {
 //       // startActivity(new Intent(this, AccActivity.class));
         //finish();
-        moveTaskToBack(true);
-  }
+       // moveTaskToBack(true);
+    }
 
 }
