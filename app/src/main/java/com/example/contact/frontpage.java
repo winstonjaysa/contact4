@@ -1,5 +1,6 @@
 package com.example.contact;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -12,6 +13,13 @@ public class frontpage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_frontpage);
+
+        //customize action bar
+        ActionBar actionBar=getSupportActionBar();
+        if(actionBar!=null){
+            actionBar.setBackgroundDrawable(getResources().getDrawable(R.drawable.gradient_action_bar));
+        }
+        //end
     }
 
     public void register(View view){

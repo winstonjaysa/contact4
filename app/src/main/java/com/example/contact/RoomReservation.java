@@ -203,6 +203,10 @@ public class RoomReservation extends AppCompatActivity {
 
                         Toast.makeText(getApplicationContext(),"Reservation added successfully",Toast.LENGTH_SHORT).show();
                         clearControl();
+
+                        Intent intent=new Intent(RoomReservation.this,dashboard.class);
+                        startActivity(intent);
+
                     }
                 }catch (NumberFormatException e){
                     Toast.makeText(getApplicationContext(),"invalid control number",Toast.LENGTH_SHORT).show();

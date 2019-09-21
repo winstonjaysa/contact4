@@ -43,11 +43,15 @@
             android:parentActivityName=".dashboard">
          </activity>
         <activity android:name=".RoomReservation"
-            android:parentActivityName=".AccActivity">
+            android:parentActivityName=".dashboard">
         </activity>
         <activity
             android:name=".ViewActivity"
             android:parentActivityName=".MainActivity" />
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>

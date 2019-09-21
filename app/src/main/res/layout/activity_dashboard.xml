@@ -15,7 +15,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="serif"
+        android:fontFamily="sans-serif"
         android:text="My Dashboard"
         android:textColor="#FFF"
         android:textSize="25dp"
@@ -45,7 +45,7 @@
                 android:layout_height="match_parent"
                 android:orientation="vertical"
                 android:gravity="center"
-                android:background="@color/colorAccent"
+                android:background="@drawable/theme_gradient"
                 >
                 <ImageView
                     android:layout_width="64dp"
@@ -53,24 +53,29 @@
                     android:tint="@color/deeppurple"
                     android:src="@drawable/avatar"
                     android:padding="10dp"/>
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textStyle="bold"
                     android:layout_marginTop="10dp"
-                    android:text="Profile"/>
+                    android:text="Profile"
+                    android:textColor="@color/white"
+                    android:textStyle="bold" />
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
                     android:background="@color/googleRed"
                     android:layout_margin="10dp"/>
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-light"
                     android:gravity="center"
-                    android:text="Your User Profile"
                     android:padding="5dp"
-                    android:textColor="@android:color/darker_gray"/>
+                    android:text="Your User Profile"
+                    android:textColor="@color/white"
+                    android:textSize="13sp" />
 
             </LinearLayout>
         </androidx.cardview.widget.CardView>
@@ -81,36 +86,46 @@
             android:layout_height="190dp"
             android:layout_margin="10dp"
             android:onClick="chat">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical"
+                android:background="@drawable/theme_gradient"
                 android:gravity="center"
-                android:background="@color/colorAccent">
+                android:orientation="vertical"
+                android:paddingTop="10dp">
+
                 <ImageView
                     android:layout_width="64dp"
                     android:layout_height="64dp"
-                    android:tint="@color/pink"
+                    android:padding="10dp"
                     android:src="@drawable/chat"
-                    android:padding="10dp"/>
+                    android:tint="@color/pink" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textStyle="bold"
                     android:layout_marginTop="10dp"
-                    android:text="Chat Room"/>
+                    android:layout_marginBottom="5dp"
+                    android:text="Chat Room"
+                    android:textColor="@color/white"
+                    android:textStyle="bold" />
+
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
-                    android:background="@color/googleRed"
-                    android:layout_margin="10dp"/>
+                    android:layout_margin="10dp"
+                    android:background="@color/googleRed" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-light"
                     android:gravity="center"
-                    android:text="Connect with people in the Hotel"
                     android:padding="5dp"
-                    android:textColor="@android:color/darker_gray"/>
+                    android:text="Connect with people in the Hotel"
+                    android:textColor="@color/white"
+                    android:textSize="13sp" />
 
             </LinearLayout>
         </androidx.cardview.widget.CardView>
@@ -129,36 +144,45 @@
             android:layout_width="160dp"
             android:layout_height="190dp"
             android:layout_margin="10dp">
+
             <LinearLayout
+                android:id="@+id/crd_room"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical"
+                android:background="@drawable/theme_gradient"
                 android:gravity="center"
-                android:background="@color/colorAccent">
+                android:orientation="vertical">
+
                 <ImageView
                     android:layout_width="64dp"
                     android:layout_height="64dp"
-                    android:tint="@color/green"
+                    android:padding="10dp"
                     android:src="@drawable/bed"
-                    android:padding="10dp"/>
+                    android:tint="@color/green" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textStyle="bold"
                     android:layout_marginTop="10dp"
-                    android:text="Room"/>
+                    android:text="Room"
+                    android:textColor="@color/white"
+                    android:textStyle="bold" />
+
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
-                    android:background="@color/googleRed"
-                    android:layout_margin="10dp"/>
+                    android:layout_margin="10dp"
+                    android:background="@color/googleRed" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-light"
                     android:gravity="center"
-                    android:text="Book your Room here"
                     android:padding="5dp"
-                    android:textColor="@android:color/darker_gray"/>
+                    android:text="Book your Room here"
+                    android:textColor="@color/white"
+                    android:textSize="13sp" />
 
             </LinearLayout>
         </androidx.cardview.widget.CardView>
@@ -173,23 +197,24 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:background="@drawable/theme_gradient"
                 android:gravity="center"
                 android:orientation="vertical"
-                android:background="@color/colorAccent"
-                >
+                android:paddingTop="10dp">
 
                 <ImageView
                     android:layout_width="64dp"
                     android:layout_height="64dp"
-                    android:tint="#999"
                     android:padding="10dp"
-                    android:src="@drawable/cloud" />
+                    android:src="@drawable/cloud"
+                    android:tint="#999" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:text="Weather"
+                    android:textColor="@color/white"
                     android:textStyle="bold" />
 
                 <View
@@ -201,10 +226,12 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-light"
                     android:gravity="center"
                     android:padding="5dp"
                     android:text="Predict the weather before planning"
-                    android:textColor="@android:color/darker_gray" />
+                    android:textColor="@color/white"
+                    android:textSize="13sp" />
 
             </LinearLayout>
         </androidx.cardview.widget.CardView>
