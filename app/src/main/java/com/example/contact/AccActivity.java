@@ -73,7 +73,6 @@ public class AccActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
         navi_txt_menu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -94,7 +93,7 @@ public class AccActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 //txt_icon_room.setTextColor(Color.parseColor("#fe435b"));
-                Intent intent=new Intent(AccActivity.this,MainActivity.class);
+                Intent intent=new Intent(AccActivity.this,RoomReservation.class);
                 startActivity(intent);
             }
         });

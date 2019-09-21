@@ -1,7 +1,6 @@
 package com.example.contact;
 
 import android.app.DatePickerDialog;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextUtils;
@@ -47,7 +46,7 @@ public class OrderAdd extends AppCompatActivity {
         //customize action bar
         ActionBar actionBar=getSupportActionBar();
         if(actionBar!=null){
-            actionBar.setBackgroundDrawable(getResources().getDrawable(R.drawable.gradiant_action_bar));
+            actionBar.setBackgroundDrawable(getResources().getDrawable(R.drawable.gradient_action_bar));
         }
         //end
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);

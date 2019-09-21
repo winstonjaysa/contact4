@@ -14,7 +14,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:background="#141312">
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="250dp">
@@ -122,8 +123,9 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="#f5f3f4"
+            android:background="#141312"
             >
+//android:background="#f5f3f4"
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -135,7 +137,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
                     android:layout_marginBottom="2dp"
-                    android:background="#FFFFFF"
+                    android:background="@drawable/theme_gradient"
                     android:clickable="true"
                     android:padding="12dp"
                     android:paddingStart="20dp">
@@ -148,16 +150,18 @@
                         android:layout_gravity="center"
                         android:gravity="left"
                         android:text="TextView"
-                        android:textColor="@drawable/button_text_color"
+                        android:textColor="@color/colorSecondary"
                         android:textSize="25sp" />
 
                     <TextView
                         android:layout_width="270dp"
                         android:layout_height="wrap_content"
-                        android:text="ORDER"
                         android:layout_gravity="center"
+                        android:fontFamily="sans-serif"
+                        android:text="ORDER"
                         android:textColor="@drawable/button_text_color"
-                        android:textSize="13sp" />
+                        android:textSize="13sp"
+                        android:typeface="sans" />
 
                     <TextView
                         android:id="@+id/tx2"
@@ -178,7 +182,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
                     android:layout_marginBottom="2dp"
-                    android:background="#FFFFFF"
+                    android:background="@drawable/theme_gradient"
                     android:padding="12dp"
                     android:paddingStart="20dp">
 
@@ -186,11 +190,11 @@
                         android:id="@+id/txt_icon_room"
                         android:layout_width="40dp"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
                         android:layout_gravity="center"
+                        android:layout_weight="1"
                         android:gravity="left"
                         android:text="TextView"
-                        android:textColor="@drawable/button_text_color"
+                        android:textColor="@color/colorSecondaryDark"
                         android:textSize="25sp" />
 
                     <TextView
@@ -205,12 +209,12 @@
                         android:id="@+id/tx4"
                         android:layout_width="40dp"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
                         android:layout_gravity="center"
+                        android:layout_weight="1"
                         android:gravity="end"
                         android:paddingRight="12dp"
-                        android:textColor="@drawable/button_text_color"
-                        android:text="TextView" />
+                        android:text="TextView"
+                        android:textColor="@drawable/button_text_color" />
 
                 </LinearLayout>
 
@@ -219,7 +223,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
                     android:layout_marginBottom="2dp"
-                    android:background="#FFFFFF"
+                    android:background="@drawable/theme_gradient"
                     android:padding="12dp"
                     android:paddingStart="20dp">
 
@@ -227,11 +231,11 @@
                         android:id="@+id/txt_icon_travel"
                         android:layout_width="40dp"
                         android:layout_height="match_parent"
-                        android:layout_weight="1"
                         android:layout_gravity="center"
+                        android:layout_weight="1"
                         android:gravity="left"
                         android:text="TextView"
-                        android:textColor="@drawable/button_text_color"
+                        android:textColor="@color/colorSecondaryDark"
                         android:textSize="25sp" />
 
                     <TextView
@@ -246,12 +250,12 @@
                         android:id="@+id/tx6"
                         android:layout_width="40dp"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
                         android:layout_gravity="center"
+                        android:layout_weight="1"
                         android:gravity="end"
                         android:paddingRight="12dp"
-                        android:textColor="@drawable/button_text_color"
-                        android:text="TextView" />
+                        android:text="TextView"
+                        android:textColor="@drawable/button_text_color" />
 
                 </LinearLayout>
 
@@ -260,7 +264,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
                     android:layout_marginBottom="2dp"
-                    android:background="#FFFFFF"
+                    android:background="@drawable/theme_gradient"
                     android:padding="12dp"
                     android:paddingStart="20dp">
 
@@ -268,11 +272,11 @@
                         android:id="@+id/txt_icon_laundry"
                         android:layout_width="40dp"
                         android:layout_height="match_parent"
-                        android:layout_weight="1"
                         android:layout_gravity="center"
+                        android:layout_weight="1"
                         android:gravity="left"
                         android:text="TextView"
-                        android:textColor="@drawable/button_text_color"
+                        android:textColor="@color/colorSecondaryDark"
                         android:textSize="25sp" />
 
                     <TextView
@@ -287,12 +291,12 @@
                         android:id="@+id/tx10"
                         android:layout_width="40dp"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
                         android:layout_gravity="center"
+                        android:layout_weight="1"
                         android:gravity="end"
                         android:paddingRight="12dp"
-                        android:textColor="@drawable/button_text_color"
-                        android:text="TextView" />
+                        android:text="TextView"
+                        android:textColor="@drawable/button_text_color" />
 
                 </LinearLayout>
 
@@ -301,7 +305,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
                     android:layout_marginBottom="2dp"
-                    android:background="#FFFFFF"
+                    android:background="@drawable/theme_gradient"
                     android:padding="12dp"
                     android:paddingStart="20dp">
 
@@ -309,14 +313,13 @@
                         android:id="@+id/txt_icon_bill"
                         android:layout_width="40dp"
                         android:layout_height="match_parent"
-                        android:layout_weight="1"
                         android:layout_gravity="center"
+                        android:layout_weight="1"
                         android:gravity="left"
-                        android:text="TextView"
-                        android:textSize="25sp"
-                        android:textColor="@drawable/button_text_color"
                         android:paddingLeft="8dp"
-                        />
+                        android:text="TextView"
+                        android:textColor="@color/colorSecondaryDark"
+                        android:textSize="25sp" />
 
                     <TextView
                         android:layout_width="270dp"
@@ -330,12 +333,12 @@
                         android:id="@+id/tx8"
                         android:layout_width="40dp"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
                         android:layout_gravity="center"
+                        android:layout_weight="1"
                         android:gravity="end"
                         android:paddingRight="12dp"
-                        android:textColor="@drawable/button_text_color"
-                        android:text="TextView" />
+                        android:text="TextView"
+                        android:textColor="@drawable/button_text_color" />
 
                 </LinearLayout>
             </LinearLayout>
