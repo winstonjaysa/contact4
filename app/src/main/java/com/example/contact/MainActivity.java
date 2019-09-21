@@ -39,7 +39,6 @@ public class MainActivity extends AppCompatActivity {
 
         emailText = (EditText) findViewById(R.id.email);
         passText = (EditText) findViewById(R.id.password);
-        btnOpen=(Button) findViewById(R.id.btnOpen);
 
         mAuth = FirebaseAuth.getInstance();
         mDatabase = FirebaseDatabase.getInstance().getReference().child("Users");
@@ -50,13 +49,6 @@ public class MainActivity extends AppCompatActivity {
             }
 
 
-        btnOpen.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent=new Intent(MainActivity.this,AccActivity.class);
-                startActivity(intent);
-            }
-        });
     }
 
 
@@ -97,8 +89,8 @@ public class MainActivity extends AppCompatActivity {
         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
             if(dataSnapshot.hasChild(user_id)){
 
-                Intent loginIntent = new Intent(MainActivity.this,NewActivity.class);
-                startActivity(loginIntent);
+                Intent dashIntent = new Intent(MainActivity.this,dashboard.class);
+                startActivity(dashIntent);
 
             }
         }
@@ -119,13 +111,24 @@ public class MainActivity extends AppCompatActivity {
        // moveTaskToBack(true);
     }
 
+
     public void forgotpass(View view){
 
         Intent forgotIntent = new Intent(MainActivity.this,forgotpass.class);
         startActivity(forgotIntent);
-        //
+
 
 
     }
+
+    public void register(View view){
+
+        Intent registerIntent = new Intent(MainActivity.this,RegisterActivity.class);
+        startActivity(registerIntent);
+
+
+
+    }
+
 
 }
