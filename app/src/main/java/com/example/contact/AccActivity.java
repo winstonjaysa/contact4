@@ -69,7 +69,7 @@ public class AccActivity extends AppCompatActivity {
         navi_txt_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(AccActivity.this,MainActivity.class);
+                Intent intent=new Intent(AccActivity.this,dashboard.class);
                 startActivity(intent);
             }
         });
