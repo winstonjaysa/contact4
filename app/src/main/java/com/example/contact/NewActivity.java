@@ -110,12 +110,12 @@ public class NewActivity extends AppCompatActivity {
     }
 
     public void signOut(View view) {
+      //  mAuth = FirebaseAuth.getInstance();
 
-        //    mAuth = FirebaseAuth.getInstance();
-     //   mAuth.signOut();
         Intent intent1 = new Intent(this, frontpage.class);
         //intent1.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent1);
+      //  mAuth.signOut();
 
 
     }

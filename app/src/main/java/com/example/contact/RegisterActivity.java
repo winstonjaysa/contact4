@@ -57,29 +57,38 @@ public class RegisterActivity extends AppCompatActivity {
         final String name = nameField.getText().toString().trim();
         String email = emailField.getText().toString().trim();
         String password = passField.getText().toString().trim();
+        String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
         if(!TextUtils.isEmpty(name) && !TextUtils.isEmpty(email) && !TextUtils.isEmpty(password) && checkBox.isChecked()){
 
+           if(email.matches(emailPattern)) {
 
+               mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                   @Override
+                   public void onComplete(@NonNull Task<AuthResult> task) {
 
-            mAuth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                @Override
-                public void onComplete(@NonNull Task<AuthResult> task) {
+                       if (task.isSuccessful()) {
 
-                   if(task.isSuccessful()){
+                           String user_id = mAuth.getCurrentUser().getUid();
+                           DatabaseReference current_user_db = mDatabase.child(user_id);
+                           current_user_db.child("Name").setValue(name);
+                           Toast.makeText(RegisterActivity.this, "Account Created", Toast.LENGTH_SHORT).show();
+                           Intent mainIntent = new Intent(RegisterActivity.this, MainActivity.class);
+                           mainIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                           startActivity(mainIntent);
 
-                        String user_id = mAuth.getCurrentUser().getUid();
-                       DatabaseReference current_user_db = mDatabase.child(user_id);
-                       current_user_db.child("Name").setValue(name);
-                       Toast.makeText(RegisterActivity.this, "Account Created", Toast.LENGTH_SHORT).show();
-                       Intent mainIntent = new Intent(RegisterActivity.this,MainActivity.class);
-                       mainIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                       startActivity(mainIntent);
+                       }
+                       else{
+                           String message = task.getException().getMessage();
+                           Toast.makeText(RegisterActivity.this, "Error occured "+message, Toast.LENGTH_SHORT).show();
+                       }
+
 
                    }
-
-
-                }
-            });
+               });
+           }
+           else{
+               Toast.makeText(this,"Invalid email address",Toast.LENGTH_SHORT).show();
+           }
         }
         else{
             Toast.makeText(this,"Cant have empty fields",Toast.LENGTH_LONG).show();

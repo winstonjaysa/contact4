@@ -89,7 +89,7 @@
                     android:layout_height="40dp"
                     android:background="@color/colorPrimary"
                     android:padding="8dp"
-                    android:src="@drawable/img_authentication"
+                    android:src="@drawable/avatar"
                     android:tint="@color/white" />
 
                 <EditText
@@ -124,7 +124,7 @@
                     android:layout_height="40dp"
                     android:background="@color/colorPrimary"
                     android:padding="8dp"
-                    android:src="@drawable/img_user"
+                    android:src="@drawable/mail"
                     android:tint="@color/white" />
 
                 <EditText

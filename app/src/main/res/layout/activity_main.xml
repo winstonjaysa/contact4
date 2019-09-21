@@ -151,28 +151,17 @@
                 android:layout_marginRight="30dp"
                 android:layout_marginTop="10dp">
 
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:text="Signup"
-                    android:textColor="@color/textColor"
-                    android:textAllCaps="false"
-                    android:background="@color/transparent"
-                    android:textSize="13sp"
-                    android:onClick="register"
-                    />
 
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
                     android:background="@color/transparent"
                     android:text="Forgot Password?"
                     android:textAllCaps="false"
                     android:textColor="@color/textColor"
                     android:textSize="13sp"
-                    android:onClick="forgotpass"/>
+                    android:onClick="forgotpass"
+                    android:layout_alignParentLeft="true"/>
 
             </RelativeLayout>
 
@@ -200,6 +189,31 @@
                 android:layerType="software"
                 android:src="@drawable/dash" />
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Dont have an account?"
+                android:textSize="17dp"
+                android:layout_below="@+id/imageView2"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="30dp"
+               />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/btn"
+                android:layout_centerVertical="true"
+                android:text="Signup"
+                android:textColor="@color/textColor"
+                android:textAllCaps="false"
+                android:background="@color/transparent"
+                android:textSize="13sp"
+                android:onClick="register"
+                android:layout_below="@+id/imageView2"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="32dp"
+                />
 
 
         </RelativeLayout>
