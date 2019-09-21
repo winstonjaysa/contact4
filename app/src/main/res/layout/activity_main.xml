@@ -4,7 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:background="#141312"
+    >
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
@@ -29,6 +31,7 @@
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:layout_marginTop="20dp"
+        android:background="@color/colorPrimaryDark"
         >
 
 
@@ -158,7 +161,7 @@
                     android:background="@color/transparent"
                     android:text="Forgot Password?"
                     android:textAllCaps="false"
-                    android:textColor="@color/textColor"
+                    android:textColor="#FFF"
                     android:textSize="13sp"
                     android:onClick="forgotpass"
                     android:layout_alignParentLeft="true"/>
@@ -193,7 +196,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Dont have an account?"
-                android:textSize="17dp"
+                android:textSize="13dp"
+                android:textColor="#FFF"
                 android:layout_below="@+id/imageView2"
                 android:layout_marginTop="10dp"
                 android:layout_marginLeft="30dp"

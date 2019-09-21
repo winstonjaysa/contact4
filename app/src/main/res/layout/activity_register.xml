@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".RegisterActivity">
+    tools:context=".RegisterActivity"
+    android:background="#141312">
 
 
     <androidx.cardview.widget.CardView
@@ -18,7 +19,8 @@
         app:cardCornerRadius="10dp"
         app:cardElevation="3dp"
         app:cardPreventCornerOverlap="false"
-        app:cardUseCompatPadding="true">
+        app:cardUseCompatPadding="true"
+        >
 
     <RelativeLayout
 
@@ -29,6 +31,7 @@
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:layout_marginTop="20dp"
+        android:background="@color/colorPrimaryDark"
         >
 
         <RelativeLayout
@@ -188,8 +191,9 @@
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:text="agree term and conditions"
-                    android:textColor="@color/textColor"
-                    android:id="@+id/cb"/>
+                    android:textColor="#FFF"
+                    android:id="@+id/cb"
+                    android:buttonTint="#FFF"/>
 
             </RelativeLayout>
 
