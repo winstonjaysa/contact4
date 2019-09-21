@@ -43,10 +43,12 @@ public class MainActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         mDatabase = FirebaseDatabase.getInstance().getReference().child("Users");
 
+        //customize action bar
         ActionBar actionBar=getSupportActionBar();
-            if(actionBar!=null){
-                actionBar.setBackgroundDrawable(getResources().getDrawable(R.drawable.gradiant_action_bar));
-            }
+        if(actionBar!=null){
+            actionBar.setBackgroundDrawable(getResources().getDrawable(R.drawable.gradient_action_bar));
+        }
+        //end
 
 
     }

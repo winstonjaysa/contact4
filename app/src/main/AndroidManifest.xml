@@ -9,29 +9,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".dashboard"></activity>
-        <activity
-            android:name=".forgotpass"
-            android:parentActivityName=".MainActivity" />
-        <activity android:name=".locationlist" />
-        <activity
-            android:name=".MainActivity"
-            android:parentActivityName=".frontpage" />
-        <activity
-            android:name=".RegisterActivity"
-            android:parentActivityName=".frontpage" />
-        <activity android:name=".NewActivity"
-            android:parentActivityName=".dashboard"/>
-        <activity android:name=".frontpage">
+        <activity android:name=".frontpage"></activity>
+        <activity android:name=".RegisterActivity" />
+        <activity android:name=".NewActivity" />
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".UnderDevelopment"
-            android:parentActivityName=".AccActivity" />
+
+        <activity android:name=".UnderDevelopment"
+            android:parentActivityName=".AccActivity"></activity>
         <activity
             android:name=".activity_Order_del_update"
             android:parentActivityName=".OrderMain" />
@@ -41,9 +31,12 @@
         <activity
             android:name=".OrderMain"
             android:parentActivityName=".AccActivity" />
-        <activity
-            android:name=".AccActivity"
-            android:parentActivityName=".MainActivity" />
+        <activity android:name=".AccActivity"
+            android:parentActivityName=".MainActivity">
+         </activity>
+        <activity android:name=".RoomReservation"
+            android:parentActivityName=".MainActivity">
+        </activity>
         <activity
             android:name=".ViewActivity"
             android:parentActivityName=".MainActivity" />

@@ -67,7 +67,7 @@ public class OrderMain extends AppCompatActivity {
         //customize action bar
         ActionBar actionBar=getSupportActionBar();
         if(actionBar!=null){
-            actionBar.setBackgroundDrawable(getResources().getDrawable(R.drawable.gradiant_action_bar));
+            actionBar.setBackgroundDrawable(getResources().getDrawable(R.drawable.gradient_action_bar));
         }
         //end
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);

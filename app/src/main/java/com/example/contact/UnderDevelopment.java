@@ -5,6 +5,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.widget.TextView;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class UnderDevelopment extends AppCompatActivity {
@@ -18,6 +19,12 @@ public class UnderDevelopment extends AppCompatActivity {
 
         txt_icon_order=(TextView) findViewById(R.id.txt_icon_order);
 
+        //customize action bar
+        ActionBar actionBar=getSupportActionBar();
+        if(actionBar!=null){
+            actionBar.setBackgroundDrawable(getResources().getDrawable(R.drawable.gradient_action_bar));
+        }
+        //end
         //action bar back button active
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle("Under development");

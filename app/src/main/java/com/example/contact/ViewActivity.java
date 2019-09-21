@@ -22,7 +22,7 @@ public class ViewActivity extends AppCompatActivity {
     TextView t1,t2,t3,t4;
     Button btnview,btnup,btndel;
     DatabaseReference myreff,dreff;
-    Member member;
+    RoomDetails roomDetails;
 
     private void clearControl(){
         t1.setText("");
@@ -47,12 +47,12 @@ public class ViewActivity extends AppCompatActivity {
         btnup=findViewById(R.id.btnupdate);
         btndel=findViewById(R.id.btndelete);
 
-        member=new Member();
+        roomDetails =new RoomDetails();
 
         btnview.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                myreff= FirebaseDatabase.getInstance().getReference().child("Member").child("4");
+                myreff= FirebaseDatabase.getInstance().getReference().child("RoomDetails").child("4");
                 myreff.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -84,20 +84,20 @@ public class ViewActivity extends AppCompatActivity {
         btnup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                myreff= FirebaseDatabase.getInstance().getReference().child("Member");
+                myreff= FirebaseDatabase.getInstance().getReference().child("RoomDetails");
                 myreff.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                         if(dataSnapshot.hasChild("4")){
 
                             try{
-                                member.setName(t1.getText().toString().trim());
-                                member.setAge(Integer.parseInt(t2.getText().toString().trim()));
-                                member.setNumber(Long.parseLong(t3.getText().toString().trim()));
-                                member.setHeight(Float.parseFloat(t4.getText().toString().trim()));
+                                roomDetails.setRType(t1.getText().toString().trim());
+                                roomDetails.setAge(Integer.parseInt(t2.getText().toString().trim()));
+                                roomDetails.setNumber(Long.parseLong(t3.getText().toString().trim()));
+                                roomDetails.setInDate(t4.getText().toString().trim());
 
-                                 dreff= FirebaseDatabase.getInstance().getReference().child("Member").child("4");
-                                 dreff.setValue(member);
+                                 dreff= FirebaseDatabase.getInstance().getReference().child("RoomDetails").child("4");
+                                 dreff.setValue(roomDetails);
 //
 //                               clearControl();
                                Toast.makeText(getApplicationContext(),"Data updated successfully",Toast.LENGTH_SHORT).show();
@@ -119,12 +119,12 @@ public class ViewActivity extends AppCompatActivity {
         btndel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                myreff= FirebaseDatabase.getInstance().getReference().child("Member");
+                myreff= FirebaseDatabase.getInstance().getReference().child("RoomDetails");
                 myreff.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                         if(dataSnapshot.hasChild("4")){
-                            myreff= FirebaseDatabase.getInstance().getReference().child("Member").child("4");
+                            myreff= FirebaseDatabase.getInstance().getReference().child("RoomDetails").child("4");
                             myreff.removeValue();
                             clearControl();
                             Toast.makeText(getApplicationContext(),"Data deleted successfully",Toast.LENGTH_SHORT).show();

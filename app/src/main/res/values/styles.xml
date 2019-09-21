@@ -20,4 +20,10 @@
         <item name="color" state_checked="true">#EEECEC</item>
     </style>
 
+
+    <style name="EditTextTheme">
+        <!-- Used for the bottom line when not selected / focused -->
+        <item name="colorControlNormal">@color/colorPrimary</item>
+        <!-- colorControlActivated & colorControlHighlight use the colorAccent color by default -->
+    </style>
   </resources>
