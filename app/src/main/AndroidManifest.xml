@@ -17,7 +17,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".MainActivity"
+            android:parentActivityName=".frontpage"></activity>
         <activity android:name=".forgotpass"
             android:parentActivityName=".RegisterActivity"></activity>
         <activity android:name=".dashboard"></activity>
