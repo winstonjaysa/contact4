@@ -80,7 +80,7 @@ public class OrderAdd extends AppCompatActivity {
 
 
         //meal spinner list
-        ArrayAdapter<CharSequence> adapter=ArrayAdapter.createFromResource(this,R.array.meal,R.layout.custom_spinner_item);
+        ArrayAdapter<CharSequence> adapter=ArrayAdapter.createFromResource(this,R.array.meal,R.layout.support_simple_spinner_dropdown_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner_meal.setAdapter(adapter);
         spinner_meal.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {

@@ -8,4 +8,4 @@
     android:singleLine="true"
     android:textAlignment="inherit"
     android:textColor="@color/colorPrimaryDark"
-    android:textSize="20sp"/>
+    android:textSize="18sp"/>
