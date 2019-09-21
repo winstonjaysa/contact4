@@ -44,7 +44,7 @@ public class ViewActivity extends AppCompatActivity {
         t3=findViewById(R.id.txt3);
         t4=findViewById(R.id.txt4);
         btnview=findViewById(R.id.btnview);
-        btnup=findViewById(R.id.btnupdate);
+        btnup=findViewById(R.id.btnCalc);
         btndel=findViewById(R.id.btndelete);
 
         roomDetails =new RoomDetails();

@@ -60,7 +60,7 @@ public class OrderAdd extends AppCompatActivity {
 
         spinner_meal=(Spinner) findViewById(R.id.meal_list);
         spinner_time=(Spinner) findViewById(R.id.time_list);
-        btnsave=findViewById(R.id.btnupdate);
+        btnsave=findViewById(R.id.btnCalc);
 
         orderDetails=new OrderDetails();
 
