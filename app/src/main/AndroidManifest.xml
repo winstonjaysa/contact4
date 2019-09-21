@@ -9,10 +9,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".frontpage"></activity>
-        <activity android:name=".RegisterActivity" />
-        <activity android:name=".NewActivity" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".forgotpass"
+            android:parentActivityName=".RegisterActivity"></activity>
+        <activity android:name=".dashboard"></activity>
+        <activity android:name=".RegisterActivity"/>
+        <activity android:name=".NewActivity"
+            android:parentActivityName=".dashboard"/>
+        <activity android:name=".frontpage">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

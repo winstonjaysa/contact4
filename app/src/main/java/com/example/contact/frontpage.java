@@ -21,7 +21,6 @@ public class frontpage extends AppCompatActivity {
         startActivity(loginIntent);
 
 
-
     }
 
     public void login(View view){
