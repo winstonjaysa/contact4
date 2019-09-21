@@ -22,7 +22,6 @@ public class frontpage extends AppCompatActivity {
 
 
     }
-
     public void login(View view){
 
         Intent loginIntent = new Intent(this,MainActivity.class);
