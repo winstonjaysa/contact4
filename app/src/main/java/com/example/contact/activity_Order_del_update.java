@@ -57,7 +57,7 @@ public class activity_Order_del_update extends AppCompatActivity {
         spinner_time = (Spinner) findViewById(R.id.time_list);
         spinner_time.setSelection(getIndex_SpinnerItem(spinner_time, time));
 
-        mUpdate = findViewById(R.id.btnupdate);
+        mUpdate = findViewById(R.id.btnCalc);
         mDelete = findViewById(R.id.btndelete);
 
 

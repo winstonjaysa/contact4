@@ -21,7 +21,9 @@
         android:paddingEnd="5dp"
         android:paddingBottom="5dp"
         android:singleLine="false"
+        android:textColor="@color/colorPrimary"
         android:textColorHint="#8B8D89"
+        android:textSize="15sp"
         android:theme="@style/EditTextTheme"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -64,7 +66,7 @@
         android:layout_marginEnd="64dp"
         android:ems="10"
         android:hint="Enter check-out date"
-        android:inputType="textPersonName"
+        android:focusable="false"
         android:paddingStart="10dp"
         android:paddingTop="5dp"
         android:paddingEnd="5dp"
@@ -104,7 +106,7 @@
         android:textColor="@color/colorPrimaryDark"
         android:textColorHint="#8B8D89"
         android:hint=" Enter check-in date"
-        android:inputType="textPersonName"
+        android:focusable="false"
         android:theme="@style/EditTextTheme"
         android:paddingStart="10dp"
         android:paddingTop="5dp"
@@ -141,7 +143,7 @@
         android:textColor="@color/colorPrimaryDark"
         android:textColorHint="#8B8D89"
         android:hint="Enter adults"
-        android:inputType="textPersonName"
+        android:inputType="number"
         android:theme="@style/EditTextTheme"
         android:paddingStart="10dp"
         android:paddingTop="5dp"
@@ -189,7 +191,7 @@
         app:layout_constraintTop_toBottomOf="@+id/etxt4" />
 
     <Button
-        android:id="@+id/btnupdate"
+        android:id="@+id/btnCalc"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -223,7 +225,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
 
-        app:layout_constraintEnd_toStartOf="@+id/btnupdate"
+        app:layout_constraintEnd_toStartOf="@+id/btnCalc"
         app:layout_constraintHorizontal_bias="0.24"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etxt5" />
@@ -243,7 +245,22 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent" />
 
-
+    <TextView
+        android:id="@+id/txtTotal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="TextView"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etxt5"
+        app:layout_constraintVertical_bias="0.282" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
