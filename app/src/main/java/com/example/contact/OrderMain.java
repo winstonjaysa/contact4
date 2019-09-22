@@ -82,6 +82,7 @@ public class OrderMain extends AppCompatActivity {
         customAddButton.setTypeface(font);
         customAddButton.setText("\uf067");
 
+
         mRecyclerView = (RecyclerView) findViewById(R.id.recycleview_order);
         new FirebaseDatabaseHelper().readOrders(new FirebaseDatabaseHelper.DataStatus() {
             @Override

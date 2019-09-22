@@ -10,7 +10,16 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.List;
 
@@ -24,6 +33,10 @@ public class activity_Order_del_update extends AppCompatActivity {
 
     private String key, name, uname, time, amount, status;
 
+    DatabaseReference databaseReference;
+    FirebaseUser user;
+    String uid,username;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,6 +47,22 @@ public class activity_Order_del_update extends AppCompatActivity {
         getSupportActionBar().setTitle("Change order");
 
 
+        user= FirebaseAuth.getInstance().getCurrentUser();
+        uid=user.getUid();
+        databaseReference= FirebaseDatabase.getInstance().getReference();
+
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                username=dataSnapshot.child("Users").child(uid).child("Name").getValue(String.class);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
 
         key = getIntent().getStringExtra("key");
         name = getIntent().getStringExtra("name");
@@ -42,7 +71,7 @@ public class activity_Order_del_update extends AppCompatActivity {
         amount = getIntent().getStringExtra("amount");
         status = getIntent().getStringExtra("status");
 
-        mUname = findViewById(R.id.etxt4);
+        mUname = findViewById(R.id.date);
         mUname.setText(uname);
 
         mAmount = findViewById(R.id.etxt2);
@@ -57,12 +86,12 @@ public class activity_Order_del_update extends AppCompatActivity {
         spinner_time = (Spinner) findViewById(R.id.time_list);
         spinner_time.setSelection(getIndex_SpinnerItem(spinner_time, time));
 
-        mUpdate = findViewById(R.id.btnCalc);
+        mUpdate = findViewById(R.id.btnUpdate);
         mDelete = findViewById(R.id.btndelete);
 
 
         //meal spinner list
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.meal, android.R.layout.simple_spinner_item);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.meal, R.layout.custom_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner_meal.setAdapter(adapter);
         spinner_meal.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -79,7 +108,7 @@ public class activity_Order_del_update extends AppCompatActivity {
         //end of meal spinner list
 
         //time spinner list
-        ArrayAdapter<CharSequence> adapter2 = ArrayAdapter.createFromResource(this, R.array.time, android.R.layout.simple_spinner_item);
+        ArrayAdapter<CharSequence> adapter2 = ArrayAdapter.createFromResource(this, R.array.time,R.layout.custom_spinner_item);
         adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner_time.setAdapter(adapter2);
         spinner_time.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -112,6 +141,7 @@ public class activity_Order_del_update extends AppCompatActivity {
                 orderDetails.setTime(spinner_time.getSelectedItem().toString());
                 orderDetails.setName(spinner_meal.getSelectedItem().toString());
                 orderDetails.setStatus(extStatus.getText().toString());
+                orderDetails.setUsername(username);
 
                 if (extStatus.getText().toString().equals("1")) {
                     mUpdate.setClickable(false);

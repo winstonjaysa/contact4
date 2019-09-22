@@ -1,18 +1,27 @@
 package com.example.contact;
 
 public class OrderDetails {
-    private String name,time,uname,amount,status;
+    private String name,time,uname,amount,status,username;
    // private int amount;
 
     public OrderDetails() {
     }
 
-    public OrderDetails(String name, String time, String uname, String amount,String status) {
+    public OrderDetails(String name, String time, String uname, String amount,String status,String username) {
         this.name = name;
         this.time = time;
         this.uname = uname;
         this.amount = amount;
         this.status=status;
+        this.username=username;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getName() {

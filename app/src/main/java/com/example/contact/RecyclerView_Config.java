@@ -9,9 +9,18 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.List;
 
@@ -40,6 +49,12 @@ public class RecyclerView_Config {
 
         ConstraintLayout orderItemLay;
         ImageView meal_pic;
+
+        DatabaseReference databaseReference;
+
+        FirebaseUser user;
+        String uid;
+
 
         public OrderItemView(ViewGroup parent){
             super(LayoutInflater.from(mContext).inflate(R.layout.order_list,parent,false));
@@ -77,38 +92,39 @@ public class RecyclerView_Config {
         }
         public void bind(OrderDetails orderDetails,String key){
 
-            mName.setText(orderDetails.getName());
-            mAmount.setText(orderDetails.getAmount());
-            mTime.setText(orderDetails.getTime());
-            mUname.setText(orderDetails.getUname());
-            txtStatus.setText(orderDetails.getStatus());
+             mName.setText(orderDetails.getName());
+             mAmount.setText(orderDetails.getAmount());
+             mTime.setText(orderDetails.getTime());
+             mUname.setText(orderDetails.getUname());
+             txtStatus.setText(orderDetails.getStatus());
 
-            if(orderDetails.getStatus().equals("1")){
-                mStatus.setVisibility(View.INVISIBLE);
-            }
+             if (orderDetails.getStatus().equals("1")) {
+                 mStatus.setVisibility(View.INVISIBLE);
+             }
 
-            this.key=key;
+             this.key = key;
 
-            if(orderDetails.getTime().equals("Breakfast")){
-                //mTime.setTextColor(Color.parseColor("#fe435b"));
-                //orderItemLay.setBackgroundColor(Color.parseColor("#fe7b45"));
-            }else if(orderDetails.getTime().equals("Launch")){
-                //orderItemLay.setBackgroundColor(Color.parseColor("#289cda"));
-            }else if(orderDetails.getTime().equals("Tea")){
-                //orderItemLay.setBackgroundColor(Color.parseColor("#01d5b1"));
-            }else if(orderDetails.getTime().equals("Dinner")){
-                //orderItemLay.setBackgroundColor(Color.parseColor("#f3b163"));
-            }
+//             if (orderDetails.getTime().equals("Breakfast")) {
+//                 //mTime.setTextColor(Color.parseColor("#fe435b"));
+//                 //orderItemLay.setBackgroundColor(Color.parseColor("#fe7b45"));
+//             } else if (orderDetails.getTime().equals("Launch")) {
+//                 //orderItemLay.setBackgroundColor(Color.parseColor("#289cda"));
+//             } else if (orderDetails.getTime().equals("Tea")) {
+//                 //orderItemLay.setBackgroundColor(Color.parseColor("#01d5b1"));
+//             } else if (orderDetails.getTime().equals("Dinner")) {
+//                 //orderItemLay.setBackgroundColor(Color.parseColor("#f3b163"));
+//             }
 
-            if(orderDetails.getName().equals("Pizza")){
-                meal_pic.setBackgroundResource(R.drawable.grilled_pizza);
-            }else if(orderDetails.getName().equals("Cup Cake")){
-                meal_pic.setBackgroundResource(R.drawable.buttercream_and_cupcakes);
-            }else if(orderDetails.getName().equals("BBQ")){
-                meal_pic.setBackgroundResource(R.drawable.baked_bbq_chicken_1);
-            }else if(orderDetails.getName().equals("Tacos")){
-                meal_pic.setBackgroundResource(R.drawable.vegan_tacos);
-            }
+             if (orderDetails.getName().equals("Pizza")) {
+                 meal_pic.setBackgroundResource(R.drawable.grilled_pizza);
+             } else if (orderDetails.getName().equals("Cup Cake")) {
+                 meal_pic.setBackgroundResource(R.drawable.buttercream_and_cupcakes);
+             } else if (orderDetails.getName().equals("BBQ")) {
+                 meal_pic.setBackgroundResource(R.drawable.baked_bbq_chicken_1);
+             } else if (orderDetails.getName().equals("Tacos")) {
+                 meal_pic.setBackgroundResource(R.drawable.vegan_tacos);
+             }
+
         }
     }
     class OrderAdapter extends RecyclerView.Adapter<OrderItemView>{

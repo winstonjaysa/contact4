@@ -39,7 +39,6 @@ public class FirebaseDatabaseHelper {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 orderDetails.clear();
                 List<String> keys=new ArrayList<>();
-
                 for(DataSnapshot keyNode:dataSnapshot.getChildren()){
                     keys.add(keyNode.getKey());
                     OrderDetails orderDetail1=keyNode.getValue(OrderDetails.class);

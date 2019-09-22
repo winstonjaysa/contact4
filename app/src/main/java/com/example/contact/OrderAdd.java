@@ -19,6 +19,8 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -37,6 +39,11 @@ public class OrderAdd extends AppCompatActivity {
     String meal_selected,time_selected;
     DatePickerDialog datePickerDialog;
     long maxId=0;
+
+    DatabaseReference databaseReference;
+
+    FirebaseUser user;
+    String uid,uname;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,6 +71,24 @@ public class OrderAdd extends AppCompatActivity {
 
         orderDetails=new OrderDetails();
 
+
+        user= FirebaseAuth.getInstance().getCurrentUser();
+        uid=user.getUid();
+        databaseReference= FirebaseDatabase.getInstance().getReference();
+
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                 uname=dataSnapshot.child("Users").child(uid).child("Name").getValue(String.class);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+
         myRef= FirebaseDatabase.getInstance().getReference().child("Order");
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
@@ -80,7 +105,7 @@ public class OrderAdd extends AppCompatActivity {
 
 
         //meal spinner list
-        ArrayAdapter<CharSequence> adapter=ArrayAdapter.createFromResource(this,R.array.meal,R.layout.support_simple_spinner_dropdown_item);
+        ArrayAdapter<CharSequence> adapter=ArrayAdapter.createFromResource(this,R.array.meal,R.layout.custom_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner_meal.setAdapter(adapter);
         spinner_meal.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -178,6 +203,7 @@ public class OrderAdd extends AppCompatActivity {
                         orderDetails.setTime(time_selected);
                         orderDetails.setUname(date.getText().toString().trim());
                         orderDetails.setStatus("0");
+                        orderDetails.setUsername(uname);
                         //myRef.push().setValue(orderDetails);
                         myRef.child(String.valueOf(maxId+1)).setValue(orderDetails);
                         Toast.makeText(getApplicationContext(),"Order added successfully.",Toast.LENGTH_SHORT).show();

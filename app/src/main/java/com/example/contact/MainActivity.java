@@ -23,6 +23,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.lang.reflect.Member;
+
 public class MainActivity extends AppCompatActivity {
 
     private DatabaseReference mDatabase;
@@ -31,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
     private EditText emailText;
     private EditText passText;
     private Button btnOpen;
+    Message message;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -91,9 +94,11 @@ public class MainActivity extends AppCompatActivity {
         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
             if(dataSnapshot.hasChild(user_id)){
 
+
                 Intent dashIntent = new Intent(MainActivity.this,dashboard.class);
                 startActivity(dashIntent);
-
+//                message.setUsername(dataSnapshot.child("Users").child(user_id).getValue().toString());
+                //dashIntent.putExtra("uid",user_id);
             }
         }
 

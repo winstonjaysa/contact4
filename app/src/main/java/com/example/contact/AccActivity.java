@@ -13,6 +13,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.drawable.RoundedBitmapDrawable;
@@ -20,12 +21,31 @@ import androidx.core.graphics.drawable.RoundedBitmapDrawableFactory;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.firebase.ui.database.FirebaseRecyclerAdapter;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.jgabrielfreitas.core.BlurImageView;
 
 public class AccActivity extends AppCompatActivity {
     TextView tv,tv2,tv3,tv4,tv5,tv6,tv7,tv8,tv9,tv10,navi_txt_back,navi_txt_menu,txt_icon_order,txt_icon_room,txt_icon_travel,txt_icon_laundry,txt_icon_bill;
+    TextView txt_username;
     LinearLayout li_order,li_room,li_bill,li_travel,li_laundry;
     FrameLayout fragmentContainer;
+
+    private FirebaseAuth mAuth;
+    private FirebaseAuth.AuthStateListener mAuthListener;
+    private DatabaseReference mDatabase;
+    Message message;
+
+    DatabaseReference databaseReference;
+
+    FirebaseUser user;
+    String uid,name;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,6 +86,27 @@ public class AccActivity extends AppCompatActivity {
         ImageView imgview=(ImageView) findViewById(R.id.img1);
 
 
+        txt_username=(TextView) findViewById(R.id.txt_username);
+        user= FirebaseAuth.getInstance().getCurrentUser();
+        uid=user.getUid();
+
+
+        databaseReference= FirebaseDatabase.getInstance().getReference();
+
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                name=dataSnapshot.child("Users").child(uid).child("Name").getValue(String.class);
+                txt_username.setText(name);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+
         navi_txt_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -86,6 +127,7 @@ public class AccActivity extends AppCompatActivity {
             public void onClick(View view) {
                 //txt_icon_order.setTextColor(Color.parseColor("#fe435b"));
                 Intent intent=new Intent(AccActivity.this,OrderMain.class);
+                //intent.putExtra("uname",name);
                 startActivity(intent);
             }
         });
@@ -189,5 +231,9 @@ public class AccActivity extends AppCompatActivity {
         transaction.add(R.id.fragmentContainer,fragment,"BLANCK_FRAGMENT").commit();
 
     }
+
+
+
 }
+
 
