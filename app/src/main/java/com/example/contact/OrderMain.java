@@ -136,7 +136,7 @@ public class OrderMain extends AppCompatActivity {
 
         switch (item.getItemId()){
             case R.id.edit:
-                Intent intent=new Intent(this,ViewActivity.class);
+                Intent intent=new Intent(this, RoomReservation_Edit.class);
                 startActivity(intent);
                 return true;
             case R.id.del:

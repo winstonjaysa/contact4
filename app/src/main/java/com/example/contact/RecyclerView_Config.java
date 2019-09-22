@@ -42,7 +42,7 @@ public class RecyclerView_Config {
         private TextView mName;
         private TextView mAmount;
         private TextView mTime;
-        private TextView mUname;
+        private TextView mDate;
         private TextView mStatus;
         private TextView txtStatus;
         private String key;
@@ -62,7 +62,7 @@ public class RecyclerView_Config {
             mName=(TextView)itemView.findViewById(R.id.txtview_name);
             mAmount=(TextView)itemView.findViewById(R.id.txtview_amount);
             mTime=(TextView)itemView.findViewById(R.id.txtview_time);
-            mUname=(TextView)itemView.findViewById(R.id.txtview_uname);
+            mDate=(TextView)itemView.findViewById(R.id.date);
             mStatus=(TextView)itemView.findViewById(R.id.pastdate);
             txtStatus=(TextView)itemView.findViewById(R.id.txtStatus);
 
@@ -79,8 +79,9 @@ public class RecyclerView_Config {
                         intent.putExtra("name", mName.getText().toString());
                         intent.putExtra("amount", mAmount.getText().toString());
                         intent.putExtra("time", mTime.getText().toString());
-                        intent.putExtra("uname", mUname.getText().toString());
+                        intent.putExtra("needDate", mDate.getText().toString());
                         intent.putExtra("status", txtStatus.getText()).toString();
+
 
                         mContext.startActivity(intent);
 
@@ -92,10 +93,10 @@ public class RecyclerView_Config {
         }
         public void bind(OrderDetails orderDetails,String key){
 
-             mName.setText(orderDetails.getName());
+             mName.setText(orderDetails.getMeal());
              mAmount.setText(orderDetails.getAmount());
              mTime.setText(orderDetails.getTime());
-             mUname.setText(orderDetails.getUname());
+             mDate.setText(orderDetails.getDate());
              txtStatus.setText(orderDetails.getStatus());
 
              if (orderDetails.getStatus().equals("1")) {
@@ -115,13 +116,13 @@ public class RecyclerView_Config {
 //                 //orderItemLay.setBackgroundColor(Color.parseColor("#f3b163"));
 //             }
 
-             if (orderDetails.getName().equals("Pizza")) {
+             if (orderDetails.getMeal().equals("Pizza")) {
                  meal_pic.setBackgroundResource(R.drawable.grilled_pizza);
-             } else if (orderDetails.getName().equals("Cup Cake")) {
+             } else if (orderDetails.getMeal().equals("Cup Cake")) {
                  meal_pic.setBackgroundResource(R.drawable.buttercream_and_cupcakes);
-             } else if (orderDetails.getName().equals("BBQ")) {
+             } else if (orderDetails.getMeal().equals("BBQ")) {
                  meal_pic.setBackgroundResource(R.drawable.baked_bbq_chicken_1);
-             } else if (orderDetails.getName().equals("Tacos")) {
+             } else if (orderDetails.getMeal().equals("Tacos")) {
                  meal_pic.setBackgroundResource(R.drawable.vegan_tacos);
              }
 

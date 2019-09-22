@@ -193,15 +193,15 @@ public class OrderAdd extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 try {
-                    if(TextUtils.isEmpty(etxt2.getText().toString()))
-                        Toast.makeText(OrderAdd.this,"please enter amount",Toast.LENGTH_LONG).show();
+                    if(TextUtils.isEmpty(etxt2.getText().toString())|| etxt2.getText().toString().equals(0))
+                        Toast.makeText(OrderAdd.this,"please enter amount more than 0",Toast.LENGTH_LONG).show();
                     else if(TextUtils.isEmpty(date.getText().toString()))
                         Toast.makeText(OrderAdd.this,"please enter date",Toast.LENGTH_LONG).show();
                     else {
-                        orderDetails.setName(meal_selected);
+                        orderDetails.setMeal(meal_selected);
                         orderDetails.setAmount(etxt2.getText().toString().trim());
                         orderDetails.setTime(time_selected);
-                        orderDetails.setUname(date.getText().toString().trim());
+                        orderDetails.setDate(date.getText().toString().trim());
                         orderDetails.setStatus("0");
                         orderDetails.setUsername(uname);
                         //myRef.push().setValue(orderDetails);

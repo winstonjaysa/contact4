@@ -1,10 +1,12 @@
 package com.example.contact;
 
+import android.app.DatePickerDialog;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -21,17 +23,19 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.Calendar;
 import java.util.List;
 
 public class activity_Order_del_update extends AppCompatActivity {
 
-    private EditText mAmount, mUname;
+    private EditText mAmount, mUname,date;
     private TextView extStatus;
     private Button mUpdate, mDelete;
     private Spinner spinner_meal, spinner_time;
     private String meal_selected, time_selected;
+    private DatePickerDialog datePickerDialog;
 
-    private String key, name, uname, time, amount, status;
+    private String key, name, uname, time,needDate,amount, status;
 
     DatabaseReference databaseReference;
     FirebaseUser user;
@@ -66,16 +70,20 @@ public class activity_Order_del_update extends AppCompatActivity {
 
         key = getIntent().getStringExtra("key");
         name = getIntent().getStringExtra("name");
-        uname = getIntent().getStringExtra("uname");
+        //uname = getIntent().getStringExtra("uname");
         time = getIntent().getStringExtra("time");
         amount = getIntent().getStringExtra("amount");
         status = getIntent().getStringExtra("status");
+        needDate=getIntent().getStringExtra("needDate");
 
-        mUname = findViewById(R.id.date);
-        mUname.setText(uname);
+//        mUname = findViewById(R.id.date);
+//        mUname.setText(name);
 
         mAmount = findViewById(R.id.etxt2);
         mAmount.setText(amount);
+
+        date=(EditText) findViewById(R.id.date);
+        date.setText(needDate);
 
         extStatus = (TextView) findViewById(R.id.extStatus);
         extStatus.setText(status);
@@ -85,6 +93,8 @@ public class activity_Order_del_update extends AppCompatActivity {
 
         spinner_time = (Spinner) findViewById(R.id.time_list);
         spinner_time.setSelection(getIndex_SpinnerItem(spinner_time, time));
+
+
 
         mUpdate = findViewById(R.id.btnUpdate);
         mDelete = findViewById(R.id.btndelete);
@@ -124,6 +134,33 @@ public class activity_Order_del_update extends AppCompatActivity {
         });
         //end of time spinner list
 
+        date.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // calender class's instance and get current date , month and year from calender
+                final Calendar c = Calendar.getInstance();
+                int mYear = c.get(Calendar.YEAR); // current year
+                int mMonth = c.get(Calendar.MONTH); // current month
+                int mDay = c.get(Calendar.DAY_OF_MONTH); // current day
+                // date picker dialog
+
+                datePickerDialog = new DatePickerDialog(activity_Order_del_update.this,
+                        new DatePickerDialog.OnDateSetListener() {
+
+                            @Override
+                            public void onDateSet(DatePicker view, int year,
+                                                  int monthOfYear, int dayOfMonth) {
+                                // set day of month , month and year value in the edit text
+                                date.setText(dayOfMonth + "/"
+                                        + (monthOfYear + 1) + "/" + year);
+
+                            }
+                        }, mYear, mMonth, mDay);
+                datePickerDialog.getDatePicker().setMinDate(System.currentTimeMillis() - 1000);
+                datePickerDialog.show();
+            }
+        });
+
 
         if (extStatus.getText().toString().equals("1")) {
             Toast.makeText(getApplicationContext(), "You can't update or delete this order.", Toast.LENGTH_SHORT).show();
@@ -136,10 +173,10 @@ public class activity_Order_del_update extends AppCompatActivity {
                 OrderDetails orderDetails = new OrderDetails();
 
 
-                orderDetails.setUname(mUname.getText().toString());
+                orderDetails.setDate(date.getText().toString());
                 orderDetails.setAmount(mAmount.getText().toString());
                 orderDetails.setTime(spinner_time.getSelectedItem().toString());
-                orderDetails.setName(spinner_meal.getSelectedItem().toString());
+                orderDetails.setMeal(spinner_meal.getSelectedItem().toString());
                 orderDetails.setStatus(extStatus.getText().toString());
                 orderDetails.setUsername(username);
 

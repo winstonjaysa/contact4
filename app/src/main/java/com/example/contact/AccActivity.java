@@ -135,7 +135,7 @@ public class AccActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 //txt_icon_room.setTextColor(Color.parseColor("#fe435b"));
-                Intent intent=new Intent(AccActivity.this,RoomReservation.class);
+                Intent intent=new Intent(AccActivity.this,RoomReservation_Edit.class);
                 startActivity(intent);
             }
         });

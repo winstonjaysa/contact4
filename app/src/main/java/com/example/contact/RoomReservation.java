@@ -4,7 +4,6 @@ import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -28,17 +27,16 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
 
-
 public class RoomReservation extends AppCompatActivity {
-    EditText etxt1,etxt2,etxt3,etxt4,etxt5;
+    EditText etxt1, etxt2, etxt3, etxt4, etxt5;
     TextView txtTotal;
     Long dt1;
-    Button btnCalc,btnview,btnSave;
+    Button btnCalc, btnview, btnSave;
     DatePickerDialog datePickerDialog;
     Calendar d1;
     RoomDetails roomDetails;
     DatabaseReference myRef;
-    long maxId=0;
+    long maxId = 0;
 
 
     @Override
@@ -48,33 +46,33 @@ public class RoomReservation extends AppCompatActivity {
 
 
         //customize action bar
-        ActionBar actionBar=getSupportActionBar();
-        if(actionBar!=null){
+        ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null) {
             actionBar.setBackgroundDrawable(getResources().getDrawable(R.drawable.gradient_action_bar));
         }
         //end
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle("Edit Room Reservation");
 
-        etxt1=findViewById(R.id.etxt1);
-        etxt2=findViewById(R.id.etxt2);
-        etxt3=findViewById(R.id.etxt3);
-        etxt4=findViewById(R.id.etxt4);
-        etxt5=findViewById(R.id.etxt5);
-        txtTotal=findViewById(R.id.txtTotal);
+        etxt1 = findViewById(R.id.etxt1);
+        etxt2 = findViewById(R.id.etxt2);
+        etxt3 = findViewById(R.id.etxt3);
+        etxt4 = findViewById(R.id.etxt4);
+        etxt5 = findViewById(R.id.etxt5);
+        txtTotal = findViewById(R.id.txtTotal);
 
-        btnCalc=findViewById(R.id.btnCalc);
-        btnview=findViewById(R.id.btnView);
-        btnSave=findViewById(R.id.btnSave);
+        btnCalc = findViewById(R.id.btnCalc);
+        btnview = findViewById(R.id.btnView);
+        btnSave = findViewById(R.id.btnUpdate);
 
-        roomDetails =new RoomDetails();
+        roomDetails = new RoomDetails();
 
-        myRef= FirebaseDatabase.getInstance().getReference().child("RoomDetails");
+        myRef = FirebaseDatabase.getInstance().getReference().child("RoomDetails");
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                if(dataSnapshot.exists())
-                    maxId=(dataSnapshot.getChildrenCount());
+                if (dataSnapshot.exists())
+                    maxId = (dataSnapshot.getChildrenCount());
             }
 
             @Override
@@ -138,22 +136,22 @@ public class RoomReservation extends AppCompatActivity {
         });
 
 
-        d1=Calendar.getInstance();
+        d1 = Calendar.getInstance();
 
 
         btnCalc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String d1=etxt2.getText().toString();
-                String d2=etxt3.getText().toString();
+                String d1 = etxt2.getText().toString();
+                String d2 = etxt3.getText().toString();
 
-                SimpleDateFormat sdf = new SimpleDateFormat( "dd-MMM-yyyy" );
+                SimpleDateFormat sdf = new SimpleDateFormat("dd-MMM-yyyy");
                 try {
-                    Date dtte1 = sdf.parse( d1 );
-                    Date dtte2 = sdf.parse( d2 );
+                    Date dtte1 = sdf.parse(d1);
+                    Date dtte2 = sdf.parse(d2);
 
-                    Long gg=compareTo(dtte1,dtte2);
-                    int h=1;
+                    Long gg = compareTo(dtte1, dtte2);
+                    int h = 1;
                     //Math.toIntExact(gg);
 
 //                    if ( compareTo( dtte1, dtte2 ) < 0 )
@@ -168,7 +166,7 @@ public class RoomReservation extends AppCompatActivity {
 //                    {
 //                        Toast.makeText(RoomReservation.this,"eq ",Toast.LENGTH_LONG).show();
 //                    }
-                }catch (ParseException e){
+                } catch (ParseException e) {
 
                 }
 
@@ -178,66 +176,69 @@ public class RoomReservation extends AppCompatActivity {
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if (maxId == 0) {
+                    try {
+                        if (TextUtils.isEmpty(etxt1.getText().toString())) {
+                            Toast.makeText(RoomReservation.this, "please enter room type", Toast.LENGTH_LONG).show();
+                        } else if (TextUtils.isEmpty(etxt2.getText().toString())) {
+                            Toast.makeText(RoomReservation.this, "please enter check-in date", Toast.LENGTH_LONG).show();
+                        } else if (TextUtils.isEmpty(etxt3.getText().toString())) {
+                            Toast.makeText(RoomReservation.this, "please enter check-out date", Toast.LENGTH_LONG).show();
+                        } else if (TextUtils.isEmpty(etxt4.getText().toString())) {
+                            Toast.makeText(RoomReservation.this, "please enter amount of adults", Toast.LENGTH_LONG).show();
+                        } else if (TextUtils.isEmpty(etxt5.getText().toString())) {
+                            Toast.makeText(RoomReservation.this, "please enter amount of children", Toast.LENGTH_LONG).show();
+                        } else {
+                            roomDetails.setRType(etxt1.getText().toString().trim());
+                            roomDetails.setInDate(etxt2.getText().toString().trim());
+                            roomDetails.setOutDate(etxt3.getText().toString().trim());
+                            roomDetails.setAmountAdults(Integer.parseInt(etxt4.getText().toString().trim()));
+                            roomDetails.setAmountChildren(Integer.parseInt(etxt5.getText().toString().trim()));
+                            roomDetails.setTotal(Float.parseFloat("54"));
 
-                try {
-                    if(TextUtils.isEmpty(etxt1.getText().toString())) {
-                        Toast.makeText(RoomReservation.this, "please enter room type", Toast.LENGTH_LONG).show();
-                    }else if(TextUtils.isEmpty(etxt2.getText().toString())) {
-                        Toast.makeText(RoomReservation.this, "please enter check-in date", Toast.LENGTH_LONG).show();
-                    }else if(TextUtils.isEmpty(etxt3.getText().toString())) {
-                        Toast.makeText(RoomReservation.this, "please enter check-out date", Toast.LENGTH_LONG).show();
-                    }else if(TextUtils.isEmpty(etxt4.getText().toString())) {
-                        Toast.makeText(RoomReservation.this, "please enter amount of adults", Toast.LENGTH_LONG).show();
-                    }else if(TextUtils.isEmpty(etxt5.getText().toString())) {
-                        Toast.makeText(RoomReservation.this, "please enter amount of children", Toast.LENGTH_LONG).show();
-                    }else{
-                        roomDetails.setRType(etxt1.getText().toString().trim());
-                        roomDetails.setInDate(etxt2.getText().toString().trim());
-                        roomDetails.setOutDate(etxt3.getText().toString().trim());
-                        roomDetails.setAmountAdults(Integer.parseInt(etxt4.getText().toString().trim()));
-                        roomDetails.setAmountChildren(Integer.parseInt(etxt5.getText().toString().trim()));
-                        roomDetails.setTotal(Float.parseFloat("54"));
+                            //myRef.push().setValue(roomDetails);
+                            myRef.child(String.valueOf(maxId + 1)).setValue(roomDetails);
 
-                        //myRef.push().setValue(roomDetails);
-                        myRef.child(String.valueOf(maxId+1)).setValue(roomDetails);
+                            Toast.makeText(getApplicationContext(), "Reservation added successfully", Toast.LENGTH_SHORT).show();
+                            clearControl();
 
-                        Toast.makeText(getApplicationContext(),"Reservation added successfully",Toast.LENGTH_SHORT).show();
-                        clearControl();
+                            Intent intent = new Intent(RoomReservation.this, dashboard.class);
+                            startActivity(intent);
 
-                        Intent intent=new Intent(RoomReservation.this,dashboard.class);
-                        startActivity(intent);
-
+                        }
+                    } catch (NumberFormatException e) {
+                        Toast.makeText(getApplicationContext(), "invalid control number", Toast.LENGTH_SHORT).show();
                     }
-                }catch (NumberFormatException e){
-                    Toast.makeText(getApplicationContext(),"invalid control number",Toast.LENGTH_SHORT).show();
+                }else{
+                    Toast.makeText(RoomReservation.this, "You can't request more than one time.", Toast.LENGTH_LONG).show();
                 }
             }
         });
 
     }
 
-    private void clearControl(){
+    private void clearControl() {
         etxt1.setText("");
         etxt2.setText("");
         etxt3.setText("");
         etxt4.setText("");
     }
 
-    public void viewdetails(View v){
-        Intent intent=new Intent(this,ViewActivity.class);
-        startActivity(intent);
-    }
-    public void accgo(View v){
-        Intent intent=new Intent(this,AccActivity.class);
+    public void viewdetails(View v) {
+        Intent intent = new Intent(this, RoomReservation_Edit.class);
         startActivity(intent);
     }
 
-    public static long compareTo( Date date1,Date date2 )
-    {
+    public void accgo(View v) {
+        Intent intent = new Intent(this, AccActivity.class);
+        startActivity(intent);
+    }
+
+    public static long compareTo(Date date1, Date date2) {
 //returns negative value if date1 is before date2
 //returns 0 if dates are even
 //returns positive value if date1 is after date2
-        Long tot=date1.getTime() - date2.getTime();
+        Long tot = date1.getTime() - date2.getTime();
         return tot;
     }
 }

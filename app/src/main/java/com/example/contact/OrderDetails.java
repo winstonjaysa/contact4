@@ -1,16 +1,17 @@
 package com.example.contact;
 
 public class OrderDetails {
-    private String name,time,uname,amount,status,username;
-   // private int amount;
+   // private String name,time,uname,amount,status,username;
+    private String meal,time,date,amount,status,username;
+
 
     public OrderDetails() {
     }
 
-    public OrderDetails(String name, String time, String uname, String amount,String status,String username) {
-        this.name = name;
+    public OrderDetails(String meal, String time, String date, String amount,String status,String username) {
+        this.meal = meal;
         this.time = time;
-        this.uname = uname;
+        this.date = date;
         this.amount = amount;
         this.status=status;
         this.username=username;
@@ -24,12 +25,12 @@ public class OrderDetails {
         this.username = username;
     }
 
-    public String getName() {
-        return name;
+    public String getMeal() {
+        return meal;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setMeal(String meal) {
+        this.meal = meal;
     }
 
     public String getTime() {
@@ -40,12 +41,12 @@ public class OrderDetails {
         this.time = time;
     }
 
-    public String getUname() {
-        return uname;
+    public String getDate() {
+        return date;
     }
 
-    public void setUname(String uname) {
-        this.uname = uname;
+    public void setDate(String date) {
+        this.date = date;
     }
 
     public String getAmount() {
