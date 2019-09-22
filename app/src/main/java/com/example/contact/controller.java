@@ -14,6 +14,7 @@ import java.util.List;
 public class controller {
 
 
+
     private FirebaseDatabase mDatabase;
     private DatabaseReference mReferenceLocation;
     private List<location> locations = new ArrayList<>();
@@ -24,12 +25,14 @@ public class controller {
         void Dataisupdated();
         void Dataisdeleted();
 
+
     }
 
     public controller(){
 
         mDatabase = FirebaseDatabase.getInstance();
         mReferenceLocation = mDatabase.getReference("location");
+
 
 
     }

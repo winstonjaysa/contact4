@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name=".frontpage">
+        <activity android:name=".locationlist">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -26,6 +26,7 @@
             android:parentActivityName=".frontpage"/>
         <activity android:name=".NewActivity"
             android:parentActivityName=".dashboard"/>
+        <activity android:name=".frontpage"></activity>
 
 
         <activity android:name=".UnderDevelopment"

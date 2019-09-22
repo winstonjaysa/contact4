@@ -5,7 +5,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".forgotpass">
+    tools:context=".forgotpass"
+    android:background="#141312">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
@@ -30,6 +31,7 @@
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:layout_marginTop="20dp"
+            android:background="@color/colorPrimaryDark"
             >
 
 
@@ -83,7 +85,7 @@
                     android:layout_height="wrap_content"
                     android:text="Please enter your Email address to request password reset"
                     android:layout_centerInParent="true"
-                    android:textColor="@color/colorAccent1"
+                    android:textColor="@color/textColor"
                     android:textSize="13dp"
                     android:layout_centerHorizontal="true"
                     />

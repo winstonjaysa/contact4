@@ -164,7 +164,17 @@
                     android:textColor="#FFF"
                     android:textSize="13sp"
                     android:onClick="forgotpass"
-                    android:layout_alignParentLeft="true"/>
+                    android:layout_marginLeft="157dp"/>
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:text="Remember me"
+                    android:textColor="#FFF"
+                    android:id="@+id/cb"
+                    android:buttonTint="#FFF"/>
+
 
             </RelativeLayout>
 

@@ -3,17 +3,16 @@ package com.example.contact;
 public class location {
 
         private String attraction;
-        private int budget;
+        private String budget;
         private String name;
 
-
-
+        
 
         public location() {
         }
 
 
-        public location(String attraction, int budget, String name) {
+        public location(String attraction, String budget, String name) {
             this.attraction = attraction;
             this.budget = budget;
             this.name = name;
@@ -27,11 +26,11 @@ public class location {
             this.attraction = attraction;
         }
 
-        public int getBudget() {
+        public String getBudget() {
             return budget;
         }
 
-        public void setBudget(int budget) {
+        public void setBudget(String budget) {
             this.budget = budget;
         }
 

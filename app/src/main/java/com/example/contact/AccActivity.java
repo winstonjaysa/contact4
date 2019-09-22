@@ -13,6 +13,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.drawable.RoundedBitmapDrawable;
@@ -20,17 +21,31 @@ import androidx.core.graphics.drawable.RoundedBitmapDrawableFactory;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.jgabrielfreitas.core.BlurImageView;
 
 public class AccActivity extends AppCompatActivity {
     TextView tv,tv2,tv3,tv4,tv5,tv6,tv7,tv8,tv9,tv10,navi_txt_back,navi_txt_menu,txt_icon_order,txt_icon_room,txt_icon_travel,txt_icon_laundry,txt_icon_bill;
     LinearLayout li_order,li_room,li_bill,li_travel,li_laundry;
     FrameLayout fragmentContainer;
-
+    private FirebaseUser mCurrentUser;
+    private DatabaseReference mDatabaseUsers;
+    private FirebaseAuth mAuth;
+    private DatabaseReference mDatabase;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_acc);
+
+
 
         ActionBar actionBar=getSupportActionBar();
         actionBar.hide();
@@ -64,6 +79,42 @@ public class AccActivity extends AppCompatActivity {
         fragmentContainer =(FrameLayout) findViewById(R.id.fragmentContainer);
 
         ImageView imgview=(ImageView) findViewById(R.id.img1);
+
+
+        mCurrentUser = mAuth.getCurrentUser();
+        mDatabaseUsers = FirebaseDatabase.getInstance().getReference().child("Users").child(mCurrentUser.getUid());
+        final DatabaseReference newPost = mDatabase.push();
+
+
+
+
+        mDatabaseUsers.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                newPost.child("username").setValue(dataSnapshot.child("Name").getValue()).addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+
+                     setUsername(mDatabaseUsers.getKey());
+                    }
+                });
+            }
+
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+
+
+
+
+
+
+
 
 
         navi_txt_back.setOnClickListener(new View.OnClickListener() {
@@ -179,6 +230,20 @@ public class AccActivity extends AppCompatActivity {
         tv10.setText("\uf054");
 
     }
+
+
+    public void setUsername(String username) {
+
+
+
+        TextView username_content = (TextView) findViewById(R.id.usernametext);
+        username_content.setText(username);
+
+    }
+
+
+
+
 
     public void openFragment(){
         pro_pic_view_fragment fragment=pro_pic_view_fragment.newInstance();

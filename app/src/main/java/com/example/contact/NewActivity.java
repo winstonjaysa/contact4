@@ -53,6 +53,9 @@ public class NewActivity extends AppCompatActivity {
         mMessageList.setLayoutManager(linearLayoutManager);
         mAuth = FirebaseAuth.getInstance();
 
+
+
+
         mAuthListener = new FirebaseAuth.AuthStateListener() {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
@@ -70,6 +73,8 @@ public class NewActivity extends AppCompatActivity {
         //finish();
         // moveTaskToBack(true);
     }
+
+
 
 
 
