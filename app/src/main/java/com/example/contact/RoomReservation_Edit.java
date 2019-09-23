@@ -42,6 +42,7 @@ public class RoomReservation_Edit extends AppCompatActivity {
         setContentView(R.layout.activity_room_edit);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle("Edit Room Reservation");
 
 
         rType=findViewById(R.id.rType);

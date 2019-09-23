@@ -74,6 +74,7 @@ public class LaundryAdd extends AppCompatActivity {
         });
 
 
+        myRef = FirebaseDatabase.getInstance().getReference().child("Laundry");
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -86,6 +87,18 @@ public class LaundryAdd extends AppCompatActivity {
 
             }
         });
+//        myRef.addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+//                if (dataSnapshot.exists())
+//                    maxId = (dataSnapshot.getChildrenCount());
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError databaseError) {
+//
+//            }
+//        });
 
 
         btnAdd.setOnClickListener(new View.OnClickListener() {

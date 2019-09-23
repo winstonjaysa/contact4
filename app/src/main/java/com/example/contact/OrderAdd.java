@@ -238,6 +238,6 @@ public class OrderAdd extends AppCompatActivity {
     private void clearControl(){
 
         etxt2.setText("");
-//        etxt4.setText("");
+        date.setText("");
     }
 }

@@ -52,7 +52,7 @@ public class RoomReservation extends AppCompatActivity {
         }
         //end
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setTitle("Edit Room Reservation");
+        getSupportActionBar().setTitle("Room Reservation");
 
         etxt1 = findViewById(R.id.itemcategory);
         etxt2 = findViewById(R.id.noofitems);
@@ -194,7 +194,7 @@ public class RoomReservation extends AppCompatActivity {
                             roomDetails.setOutDate(etxt3.getText().toString().trim());
                             roomDetails.setAmountAdults(Integer.parseInt(etxt4.getText().toString().trim()));
                             roomDetails.setAmountChildren(Integer.parseInt(etxt5.getText().toString().trim()));
-                            roomDetails.setTotal(Float.parseFloat("54"));
+                            //roomDetails.setTotal(Float.parseFloat("54"));
 
                             //myRef.push().setValue(roomDetails);
                             myRef.child(String.valueOf(maxId + 1)).setValue(roomDetails);

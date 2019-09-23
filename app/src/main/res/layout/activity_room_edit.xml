@@ -240,7 +240,7 @@
         android:background="@drawable/button_full_width_secondary"
         android:fontFamily="@font/calligraffitti"
         android:paddingTop="5dp"
-        android:text="Book Now"
+        android:text="Update"
         android:textColor="@color/white"
         android:textSize="20sp"
         android:textStyle="bold"
