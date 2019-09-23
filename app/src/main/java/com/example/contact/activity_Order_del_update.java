@@ -2,6 +2,7 @@ package com.example.contact;
 
 import android.app.DatePickerDialog;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -28,37 +29,37 @@ import java.util.List;
 
 public class activity_Order_del_update extends AppCompatActivity {
 
-    private EditText mAmount, mUname,date;
+    private EditText mAmount, mUname, date;
     private TextView extStatus;
     private Button mUpdate, mDelete;
     private Spinner spinner_meal, spinner_time;
     private String meal_selected, time_selected;
     private DatePickerDialog datePickerDialog;
 
-    private String key, name, uname, time,needDate,amount, status;
+    private String key, name, uname, time, needDate, amount, status;
 
     DatabaseReference databaseReference;
     FirebaseUser user;
-    String uid,username;
+    String uid, username;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity__order_del_update);
+        setContentView(R.layout.activity_order_del_update);
 
         //action bar back button active
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle("Change order");
 
 
-        user= FirebaseAuth.getInstance().getCurrentUser();
-        uid=user.getUid();
-        databaseReference= FirebaseDatabase.getInstance().getReference();
+        user = FirebaseAuth.getInstance().getCurrentUser();
+        uid = user.getUid();
+        databaseReference = FirebaseDatabase.getInstance().getReference();
 
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                username=dataSnapshot.child("Users").child(uid).child("Name").getValue(String.class);
+                username = dataSnapshot.child("Users").child(uid).child("Name").getValue(String.class);
             }
 
             @Override
@@ -74,7 +75,7 @@ public class activity_Order_del_update extends AppCompatActivity {
         time = getIntent().getStringExtra("time");
         amount = getIntent().getStringExtra("amount");
         status = getIntent().getStringExtra("status");
-        needDate=getIntent().getStringExtra("needDate");
+        needDate = getIntent().getStringExtra("needDate");
 
 //        mUname = findViewById(R.id.date);
 //        mUname.setText(name);
@@ -82,7 +83,7 @@ public class activity_Order_del_update extends AppCompatActivity {
         mAmount = findViewById(R.id.etxt2);
         mAmount.setText(amount);
 
-        date=(EditText) findViewById(R.id.date);
+        date = (EditText) findViewById(R.id.date);
         date.setText(needDate);
 
         extStatus = (TextView) findViewById(R.id.extStatus);
@@ -93,7 +94,6 @@ public class activity_Order_del_update extends AppCompatActivity {
 
         spinner_time = (Spinner) findViewById(R.id.time_list);
         spinner_time.setSelection(getIndex_SpinnerItem(spinner_time, time));
-
 
 
         mUpdate = findViewById(R.id.btnUpdate);
@@ -108,6 +108,7 @@ public class activity_Order_del_update extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 meal_selected = adapterView.getItemAtPosition(i).toString();
+
             }
 
             @Override
@@ -118,7 +119,7 @@ public class activity_Order_del_update extends AppCompatActivity {
         //end of meal spinner list
 
         //time spinner list
-        ArrayAdapter<CharSequence> adapter2 = ArrayAdapter.createFromResource(this, R.array.time,R.layout.custom_spinner_item);
+        ArrayAdapter<CharSequence> adapter2 = ArrayAdapter.createFromResource(this, R.array.time, R.layout.custom_spinner_item);
         adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner_time.setAdapter(adapter2);
         spinner_time.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -184,29 +185,41 @@ public class activity_Order_del_update extends AppCompatActivity {
                     mUpdate.setClickable(false);
                     Toast.makeText(getApplicationContext(), "You can't update this order.", Toast.LENGTH_SHORT).show();
                 } else if (extStatus.getText().toString().equals("0")) {
-                    new FirebaseDatabaseHelper().updateOrder(key, orderDetails, new FirebaseDatabaseHelper.DataStatus() {
-                        @Override
-                        public void DataIsLoaded(List<OrderDetails> orderDetails, List<String> keys) {
 
-                        }
+                    if (TextUtils.isEmpty(meal_selected)) {
+                        Toast.makeText(activity_Order_del_update.this, "please select a meal", Toast.LENGTH_LONG).show();
+                    }else if (TextUtils.isEmpty(time_selected)) {
+                        Toast.makeText(activity_Order_del_update.this, "please select time", Toast.LENGTH_LONG).show();
+                    }else if(TextUtils.isEmpty(mAmount.getText().toString())|| mAmount.getText().toString().equals(0)) {
+                        Toast.makeText(activity_Order_del_update.this, "please enter amount more than 0", Toast.LENGTH_LONG).show();
+                    }else if(TextUtils.isEmpty(date.getText().toString()))
+                        Toast.makeText(activity_Order_del_update.this,"please select date",Toast.LENGTH_LONG).show();
+                    else {
 
-                        @Override
-                        public void DataIsInserted() {
+                        new FirebaseDatabaseHelper().updateOrder(key, orderDetails, new FirebaseDatabaseHelper.DataStatus() {
+                            @Override
+                            public void DataIsLoaded(List<OrderDetails> orderDetails, List<String> keys) {
 
-                        }
+                            }
 
-                        @Override
-                        public void DataIsUpdated() {
+                            @Override
+                            public void DataIsInserted() {
 
-                            Toast.makeText(activity_Order_del_update.this, "Order updated successfully", Toast.LENGTH_LONG).show();
-                            finish();
-                        }
+                            }
 
-                        @Override
-                        public void DataIsDeleted() {
+                            @Override
+                            public void DataIsUpdated() {
 
-                        }
-                    });
+                                Toast.makeText(activity_Order_del_update.this, "Order updated successfully", Toast.LENGTH_LONG).show();
+                                finish();
+                            }
+
+                            @Override
+                            public void DataIsDeleted() {
+
+                            }
+                        });
+                    }
                 }
             }
         });

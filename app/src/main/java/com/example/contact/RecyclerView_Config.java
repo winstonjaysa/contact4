@@ -124,8 +124,21 @@ public class RecyclerView_Config {
                  meal_pic.setBackgroundResource(R.drawable.baked_bbq_chicken_1);
              } else if (orderDetails.getMeal().equals("Tacos")) {
                  meal_pic.setBackgroundResource(R.drawable.vegan_tacos);
+             }else if (orderDetails.getMeal().equals("Soup with sandwich")) {
+                 meal_pic.setBackgroundResource(R.drawable.order_soup);
+             }else if (orderDetails.getMeal().equals("Vegetarian pasta")) {
+                 meal_pic.setBackgroundResource(R.drawable.order_vegetarian_pasta);
+             }else if (orderDetails.getMeal().equals("Grilled cheese sandwich")) {
+                 meal_pic.setBackgroundResource(R.drawable.order_grilled_cheese);
+             }else if (orderDetails.getMeal().equals("Thai chicken noodles")) {
+                 meal_pic.setBackgroundResource(R.drawable.order_thai_chicken_noodles);
              }
-
+             //juice
+             else if (orderDetails.getMeal().equals("Watermelon juice")) {
+                meal_pic.setBackgroundResource(R.drawable.order_watermelon_juice);
+             }else if (orderDetails.getMeal().equals("Coffee")) {
+                 meal_pic.setBackgroundResource(R.drawable.order_coffee);
+             }
         }
     }
     class OrderAdapter extends RecyclerView.Adapter<OrderItemView>{
