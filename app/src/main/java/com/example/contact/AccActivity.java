@@ -143,7 +143,7 @@ public class AccActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 //txt_icon_travel.setTextColor(Color.parseColor("#fe435b"));
-                Intent intent=new Intent(AccActivity.this, UnderDevelopment.class);
+                Intent intent=new Intent(AccActivity.this, locationlist.class);
                 startActivity(intent);
 
 //                pro_pic_view_fragment fragment23=new pro_pic_view_fragment();
