@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -19,7 +20,7 @@ public class Recyclerview_context {
 
     private Context mcontext;
     private locationadapter mlocationadapter;
-    String userNameGG="";
+    String userNameGG;
     public void setConfig(RecyclerView recyclerView, Context context, List<location> locations, List<String> keys,String userName) {
 
         userNameGG=userName;
@@ -35,6 +36,7 @@ public class Recyclerview_context {
         private TextView title1;
         private TextView title2;
         private TextView title3;
+        ConstraintLayout c1;
 
         private String key;
 
@@ -47,6 +49,8 @@ public class Recyclerview_context {
             title1 = (TextView) itemView.findViewById(R.id.tv1);
             title2 = (TextView) itemView.findViewById(R.id.tv2);
             title3 = (TextView) itemView.findViewById(R.id.tv3);
+
+            c1=(ConstraintLayout) itemView.findViewById(R.id.cl);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -75,6 +79,12 @@ public class Recyclerview_context {
                 this.key = key;
             }
 
+            else {
+
+                RecyclerView.LayoutParams layoutParams = (RecyclerView.LayoutParams)c1.getLayoutParams();
+                layoutParams.height = 0;
+                c1.setLayoutParams(layoutParams);
+            }
         }
 
     }
