@@ -1,5 +1,6 @@
 package com.example.contact;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
@@ -9,6 +10,14 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -24,6 +33,11 @@ public class aluthlocation extends AppCompatActivity {
     private Button button;
     final Calendar myCalendar = Calendar.getInstance();
 
+    DatabaseReference databaseReference;
+
+    FirebaseUser user;
+    String uid,uname;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +52,21 @@ public class aluthlocation extends AppCompatActivity {
 
 
 
+        user= FirebaseAuth.getInstance().getCurrentUser();
+        uid=user.getUid();
+        databaseReference= FirebaseDatabase.getInstance().getReference();
+
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                uname=dataSnapshot.child("Users").child(uid).child("Name").getValue(String.class);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
 
 
         final DatePickerDialog.OnDateSetListener date = new DatePickerDialog.OnDateSetListener() {
@@ -80,6 +109,7 @@ public class aluthlocation extends AppCompatActivity {
                 location.setName(editText1.getText().toString());
                 location.setAttraction(editText2.getText().toString());
                 location.setBudget(editText3.getText().toString());
+                location.setUsername(uname);
                 new controller().addlocation(location, new controller.datastatus() {
                     @Override
                     public void Dataisloaded(List<com.example.contact.location> locations, List<String> keys) {

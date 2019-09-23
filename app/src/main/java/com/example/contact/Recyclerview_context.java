@@ -19,9 +19,10 @@ public class Recyclerview_context {
 
     private Context mcontext;
     private locationadapter mlocationadapter;
+    String userNameGG="";
+    public void setConfig(RecyclerView recyclerView, Context context, List<location> locations, List<String> keys,String userName) {
 
-    public void setConfig(RecyclerView recyclerView, Context context, List<location> locations, List<String> keys) {
-
+        userNameGG=userName;
         mcontext = context;
         mlocationadapter = new locationadapter(locations,keys);
         recyclerView.setLayoutManager(new LinearLayoutManager(context));
@@ -64,13 +65,18 @@ public class Recyclerview_context {
         }
 
         public void bind(location location, String key) {
-            title1.setText(location.getName());
-            title2.setText(location.getAttraction());
-            title3.setText(location.getBudget());
-            this.key = key;
 
+            if(location.getUsername().equals(userNameGG)) {
+
+                title1.setText(location.getName());
+                title2.setText(location.getAttraction());
+                title3.setText(location.getBudget());
+
+                this.key = key;
+            }
 
         }
+
     }
         class locationadapter extends RecyclerView.Adapter<locationitemview> {
 
