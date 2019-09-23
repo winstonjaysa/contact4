@@ -115,8 +115,6 @@ public class location_u_d extends AppCompatActivity {
 
 
 
-
-
         updatebutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
