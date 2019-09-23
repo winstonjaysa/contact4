@@ -7,6 +7,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -28,14 +30,16 @@ public class RecyclerView_Config {
     private Context mContext;
     private OrderAdapter mOrderAdapter;
     DatePickerDialog datePickerDialog;
+    ConstraintLayout orderItemLaygg;
+    String userNameGG;
 
-
-
-    public void setConfig(RecyclerView recyclerView, Context context, List<OrderDetails> orders, List<String> keys){
+    public void setConfig(RecyclerView recyclerView, Context context, List<OrderDetails> orders, List<String> keys,String userName){
+        userNameGG=userName;
         mContext = context;
         mOrderAdapter=new OrderAdapter(orders,keys);
         recyclerView.setLayoutManager(new LinearLayoutManager(context));
         recyclerView.setAdapter(mOrderAdapter);
+
     }
 
     class OrderItemView extends RecyclerView.ViewHolder{
@@ -91,19 +95,21 @@ public class RecyclerView_Config {
 
 
         }
-        public void bind(OrderDetails orderDetails,String key){
+        public void bind(OrderDetails orderDetails,String key) {
+            if (orderDetails.getUsername().equals(userNameGG)) {
+               // orderItemLay.setVisibility(View.VISIBLE);
 
-             mName.setText(orderDetails.getMeal());
-             mAmount.setText(orderDetails.getAmount());
-             mTime.setText(orderDetails.getTime());
-             mDate.setText(orderDetails.getDate());
-             txtStatus.setText(orderDetails.getStatus());
+                mName.setText(orderDetails.getMeal());
+                mAmount.setText(orderDetails.getAmount());
+                mTime.setText(orderDetails.getTime());
+                mDate.setText(orderDetails.getDate());
+                txtStatus.setText(orderDetails.getStatus());
 
-             if (orderDetails.getStatus().equals("1")) {
-                 mStatus.setVisibility(View.INVISIBLE);
-             }
+                if (orderDetails.getStatus().equals("1")) {
+                    mStatus.setVisibility(View.INVISIBLE);
+                }
 
-             this.key = key;
+                this.key = key;
 
 //             if (orderDetails.getTime().equals("Breakfast")) {
 //                 //mTime.setTextColor(Color.parseColor("#fe435b"));
@@ -116,29 +122,35 @@ public class RecyclerView_Config {
 //                 //orderItemLay.setBackgroundColor(Color.parseColor("#f3b163"));
 //             }
 
-             if (orderDetails.getMeal().equals("Pizza")) {
-                 meal_pic.setBackgroundResource(R.drawable.grilled_pizza);
-             } else if (orderDetails.getMeal().equals("Cup Cake")) {
-                 meal_pic.setBackgroundResource(R.drawable.buttercream_and_cupcakes);
-             } else if (orderDetails.getMeal().equals("BBQ")) {
-                 meal_pic.setBackgroundResource(R.drawable.baked_bbq_chicken_1);
-             } else if (orderDetails.getMeal().equals("Tacos")) {
-                 meal_pic.setBackgroundResource(R.drawable.vegan_tacos);
-             }else if (orderDetails.getMeal().equals("Soup with sandwich")) {
-                 meal_pic.setBackgroundResource(R.drawable.order_soup);
-             }else if (orderDetails.getMeal().equals("Vegetarian pasta")) {
-                 meal_pic.setBackgroundResource(R.drawable.order_vegetarian_pasta);
-             }else if (orderDetails.getMeal().equals("Grilled cheese sandwich")) {
-                 meal_pic.setBackgroundResource(R.drawable.order_grilled_cheese);
-             }else if (orderDetails.getMeal().equals("Thai chicken noodles")) {
-                 meal_pic.setBackgroundResource(R.drawable.order_thai_chicken_noodles);
-             }
-             //juice
-             else if (orderDetails.getMeal().equals("Watermelon juice")) {
-                meal_pic.setBackgroundResource(R.drawable.order_watermelon_juice);
-             }else if (orderDetails.getMeal().equals("Coffee")) {
-                 meal_pic.setBackgroundResource(R.drawable.order_coffee);
-             }
+                if (orderDetails.getMeal().equals("Pizza")) {
+                    meal_pic.setBackgroundResource(R.drawable.grilled_pizza);
+                } else if (orderDetails.getMeal().equals("Cup Cake")) {
+                    meal_pic.setBackgroundResource(R.drawable.buttercream_and_cupcakes);
+                } else if (orderDetails.getMeal().equals("BBQ")) {
+                    meal_pic.setBackgroundResource(R.drawable.baked_bbq_chicken_1);
+                } else if (orderDetails.getMeal().equals("Tacos")) {
+                    meal_pic.setBackgroundResource(R.drawable.vegan_tacos);
+                } else if (orderDetails.getMeal().equals("Soup with sandwich")) {
+                    meal_pic.setBackgroundResource(R.drawable.order_soup);
+                } else if (orderDetails.getMeal().equals("Vegetarian pasta")) {
+                    meal_pic.setBackgroundResource(R.drawable.order_vegetarian_pasta);
+                } else if (orderDetails.getMeal().equals("Grilled cheese sandwich")) {
+                    meal_pic.setBackgroundResource(R.drawable.order_grilled_cheese);
+                } else if (orderDetails.getMeal().equals("Thai chicken noodles")) {
+                    meal_pic.setBackgroundResource(R.drawable.order_thai_chicken_noodles);
+                }
+                //juice
+                else if (orderDetails.getMeal().equals("Watermelon juice")) {
+                    meal_pic.setBackgroundResource(R.drawable.order_watermelon_juice);
+                } else if (orderDetails.getMeal().equals("Coffee")) {
+                    meal_pic.setBackgroundResource(R.drawable.order_coffee);
+                }
+            }else {
+
+                RecyclerView.LayoutParams layoutParams = (RecyclerView.LayoutParams)orderItemLay.getLayoutParams();
+                layoutParams.height = 0;
+                orderItemLay.setLayoutParams(layoutParams);
+            }
         }
     }
     class OrderAdapter extends RecyclerView.Adapter<OrderItemView>{
