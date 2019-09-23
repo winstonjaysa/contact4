@@ -9,9 +9,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Laundry_u_d"></activity>
-        <activity android:name=".LaundryAdd" />
-        <activity android:name=".weatheractivity" />
+        <activity android:name=".Laundry_u_d"
+            android:parentActivityName=".LaundryAdd"></activity>
+        <activity android:name=".LaundryAdd"
+            android:parentActivityName=".AccActivity"/>
+        <activity android:name=".weatheractivity"
+            android:parentActivityName=".dashboard"/>
         <activity
             android:name=".location_u_d"
             android:parentActivityName=".locationlist" />
