@@ -62,7 +62,7 @@ public class RoomReservation extends AppCompatActivity {
         txtTotal = findViewById(R.id.txtTotal);
 
         btnCalc = findViewById(R.id.btnCalc);
-        btnview = findViewById(R.id.btnView);
+        btnview = findViewById(R.id.btndelete);
         btnSave = findViewById(R.id.btnUpdate);
 
         roomDetails = new RoomDetails();

@@ -6,7 +6,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -22,7 +21,7 @@ import com.google.firebase.database.ValueEventListener;
 
 public class LaundryAdd extends AppCompatActivity {
 
-    private Button btnAdd;
+    private Button btnAdd,btnView;
     long maxId = 0;
     private EditText itemcategory,noofitems;
 
@@ -41,7 +40,9 @@ public class LaundryAdd extends AppCompatActivity {
 
         laundryDetails=new LaundryDetails();
 
-        btnAdd=(Button) findViewById(R.id.btnAdd);
+        btnAdd=(Button) findViewById(R.id.btnupdate);
+        btnView=(Button)findViewById(R.id.btndelete);
+
         itemcategory=(EditText)findViewById(R.id.itemcategory);
         noofitems=(EditText)findViewById(R.id.noofitems);
 
@@ -96,11 +97,14 @@ public class LaundryAdd extends AppCompatActivity {
                             laundryDetails.setCategory(itemcategory.getText().toString().trim());
                             laundryDetails.setNoOfItems(Integer.parseInt(noofitems.getText().toString().trim()));
 
-                            laundryDetails.setPrice("55");
+                            int x=Integer.parseInt(noofitems.getText().toString().trim());
+                            int tot=x*10;
+
+                            laundryDetails.setPrice(tot);
                             laundryDetails.setUserName(uname);
 
 
-                            myRef.push().setValue(laundryDetails);
+                            myRef.child(String.valueOf(maxId + 1)).setValue(laundryDetails);
 
                             Toast.makeText(getApplicationContext(), "Laundry item added successfully", Toast.LENGTH_SHORT).show();
 
@@ -116,5 +120,15 @@ public class LaundryAdd extends AppCompatActivity {
                 }
             }
         });
+
+        btnView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(LaundryAdd.this,Laundry_u_d.class);
+                startActivity(intent);
+            }
+        });
     }
+
+
 }

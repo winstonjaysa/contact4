@@ -5,10 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimaryBlack"
-    tools:context=".LaundryAdd">
+    tools:context=".Laundry_u_d">
 
     <EditText
-        android:id="@+id/itemcategory"
+        android:id="@+id/Category"
         android:layout_width="200dp"
         android:layout_height="45dp"
         android:layout_marginTop="140dp"
@@ -32,14 +32,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="152dp"
+        android:layout_marginTop="150dp"
         android:layout_marginEnd="8dp"
         android:fontFamily="@font/calligraffitti"
         android:text="Item"
         android:textColor="#9a9a9a"
         android:textSize="18sp"
-        app:layout_constraintEnd_toStartOf="@+id/itemcategory"
-        app:layout_constraintHorizontal_bias="0.603"
+        app:layout_constraintEnd_toStartOf="@+id/Category"
+        app:layout_constraintHorizontal_bias="0.301"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -48,8 +48,8 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="48dp"
-        android:layout_marginTop="35dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="38dp"
         android:fontFamily="@font/calligraffitti"
         android:text="No of items"
         android:textColor="#9a9a9a"
@@ -58,7 +58,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView10" />
 
     <EditText
-        android:id="@+id/noofitems"
+        android:id="@+id/noofitemss"
         android:layout_width="200dp"
         android:layout_height="45dp"
         android:layout_marginStart="8dp"
@@ -77,73 +77,59 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/textView2"
-        app:layout_constraintTop_toBottomOf="@+id/itemcategory" />
+        app:layout_constraintTop_toBottomOf="@+id/Category" />
 
 
     <Button
-        android:id="@+id/btnCalc"
+        android:id="@+id/btnUpdate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="124dp"
+        android:layout_marginBottom="112dp"
         android:background="@drawable/round_corners_button"
         android:fontFamily="@font/calligraffitti"
         android:paddingLeft="15dp"
         android:paddingRight="15dp"
-        android:text="Calculate"
+        android:text="Update"
         android:textAllCaps="false"
         android:textColor="@color/white"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.841"
+        app:layout_constraintHorizontal_bias="0.784"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/noofitems"
+        app:layout_constraintTop_toBottomOf="@+id/noofitemss"
         app:layout_constraintVertical_bias="1.0" />
 
     <Button
-        android:id="@+id/btndelete"
+        android:id="@+id/btnDelete"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="72dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="124dp"
+        android:layout_marginBottom="112dp"
         android:background="@drawable/round_corners_button"
-        android:text="@string/view"
+        android:text="@string/delete"
         android:textColor="@color/white"
 
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/btnCalc"
-        app:layout_constraintHorizontal_bias="0.23"
+        app:layout_constraintHorizontal_bias="0.24"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/noofitems"
+        app:layout_constraintTop_toBottomOf="@+id/noofitemss"
         app:layout_constraintVertical_bias="1.0" />
 
-    <Button
-        android:id="@+id/btnupdate"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:background="@drawable/button_full_width_secondary"
-        android:fontFamily="@font/calligraffitti"
-        android:paddingTop="5dp"
-        android:text="Enter now"
-        android:textColor="@color/white"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:id="@+id/txtTotal"
+        android:id="@+id/txtTotal_up"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         android:text="0"
@@ -151,5 +137,26 @@
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.63"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/noofitemss"
+        app:layout_constraintVertical_bias="0.35" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:fontFamily="@font/calligraffitti"
+        android:text="Total price( $ )"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/txtTotal_up"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/noofitemss"
+        app:layout_constraintVertical_bias="0.344" />
 </androidx.constraintlayout.widget.ConstraintLayout>

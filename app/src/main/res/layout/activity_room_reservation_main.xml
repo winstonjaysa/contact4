@@ -215,7 +215,7 @@
          android:textAllCaps="false"/>
 
     <Button
-        android:id="@+id/btnView"
+        android:id="@+id/btndelete"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"

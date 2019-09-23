@@ -1,8 +1,8 @@
 package com.example.contact;
 
 public class LaundryDetails {
-    private String userName,price,category;
-    private int noOfItems;
+    private String userName,category;
+    private int noOfItems,price;
 
     public LaundryDetails() {
     }
@@ -23,11 +23,11 @@ public class LaundryDetails {
         this.noOfItems = noOfItems;
     }
 
-    public String getPrice() {
+    public int getPrice() {
         return price;
     }
 
-    public void setPrice(String price) {
+    public void setPrice(int price) {
         this.price = price;
     }
 
