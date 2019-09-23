@@ -4,23 +4,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#141312"
-    tools:context=".RoomReservation_Edit">
+    android:background="@color/colorPrimaryBlack"
+    tools:context=".Laundry_u_d">
 
     <EditText
-        android:id="@+id/rType"
+        android:id="@+id/itemcategory"
         android:layout_width="200dp"
         android:layout_height="45dp"
         android:layout_marginTop="48dp"
         android:layout_marginEnd="58dp"
         android:ems="10"
-        android:hint="Enter room type"
+        android:hint="Enter item"
         android:inputType="textPersonName"
         android:paddingStart="10dp"
         android:paddingTop="5dp"
         android:paddingEnd="5dp"
         android:paddingBottom="5dp"
-        android:singleLine="false"
         android:textColor="@color/colorPrimary"
         android:textColorHint="#8B8D89"
         android:textSize="15sp"
@@ -36,38 +35,37 @@
         android:layout_marginTop="58dp"
         android:layout_marginEnd="8dp"
         android:fontFamily="@font/calligraffitti"
-        android:text="Room Type"
+        android:text="Item"
         android:textColor="#9a9a9a"
         android:textSize="18sp"
-        app:layout_constraintEnd_toStartOf="@+id/rType"
+        app:layout_constraintEnd_toStartOf="@+id/itemcategory"
         app:layout_constraintHorizontal_bias="0.68"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
 
     <TextView
-        android:id="@+id/noofitems"
+        android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="42dp"
         android:layout_marginTop="50dp"
         android:fontFamily="@font/calligraffitti"
-        android:text="Check-out date"
+        android:text="No of items"
         android:textColor="#9a9a9a"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView10" />
 
     <EditText
-        android:id="@+id/out_date"
+        android:id="@+id/noofitems"
         android:layout_width="200dp"
         android:layout_height="45dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="58dp"
         android:ems="10"
-        android:hint="Enter check-out date"
-        android:focusable="false"
+        android:hint="Enter no of items"
         android:paddingStart="10dp"
         android:paddingTop="5dp"
         android:paddingEnd="5dp"
@@ -78,8 +76,8 @@
         android:theme="@style/EditTextTheme"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/noofitems"
-        app:layout_constraintTop_toBottomOf="@+id/rType" />
+        app:layout_constraintStart_toEndOf="@+id/textView2"
+        app:layout_constraintTop_toBottomOf="@+id/itemcategory" />
 
 
     <TextView
@@ -96,7 +94,7 @@
         app:layout_constraintTop_toBottomOf="@+id/noofitems" />
 
     <EditText
-        android:id="@+id/in_date"
+        android:id="@+id/etxt3"
         android:layout_width="200dp"
         android:layout_height="45dp"
         android:layout_marginStart="8dp"
@@ -116,7 +114,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/textView12"
-        app:layout_constraintTop_toBottomOf="@+id/out_date" />
+        app:layout_constraintTop_toBottomOf="@+id/noofitems" />
 
 
     <TextView
@@ -133,7 +131,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView12" />
 
     <EditText
-        android:id="@+id/adults"
+        android:id="@+id/etxt4"
         android:layout_width="200dp"
         android:layout_height="45dp"
         android:layout_marginStart="8dp"
@@ -153,7 +151,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/textView13"
-        app:layout_constraintTop_toBottomOf="@+id/in_date" />
+        app:layout_constraintTop_toBottomOf="@+id/etxt3" />
 
 
     <TextView
@@ -170,7 +168,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView13" />
 
     <EditText
-        android:id="@+id/children"
+        android:id="@+id/etxt5"
         android:layout_width="200dp"
         android:layout_height="45dp"
         android:layout_marginTop="36dp"
@@ -189,7 +187,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/adults" />
+        app:layout_constraintTop_toBottomOf="@+id/etxt4" />
 
     <Button
         android:id="@+id/btnCalc"
@@ -204,18 +202,17 @@
         android:paddingLeft="15dp"
         android:paddingRight="15dp"
         android:text="Calculate"
+        android:textAllCaps="false"
         android:textColor="@color/white"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.882"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/children"
-        app:layout_constraintVertical_bias="0.498"
-        android:textAllCaps="false"/>
+        app:layout_constraintTop_toBottomOf="@+id/etxt5" />
 
     <Button
-        android:id="@+id/btndelete"
+        android:id="@+id/btnView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -223,18 +220,18 @@
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         android:background="@drawable/round_corners_button"
-        android:text="Delete"
+        android:text="@string/view"
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
 
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/btnCalc"
         app:layout_constraintHorizontal_bias="0.24"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/children" />
+        app:layout_constraintTop_toBottomOf="@+id/etxt5" />
 
     <Button
-        android:id="@+id/btnUpdate"
+        android:id="@+id/btnAdd"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:background="@drawable/button_full_width_secondary"
@@ -254,7 +251,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         android:text="0"
@@ -262,9 +258,5 @@
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/children"
-        app:layout_constraintVertical_bias="0.282" />
-
-
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

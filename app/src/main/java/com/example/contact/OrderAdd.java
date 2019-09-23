@@ -59,7 +59,7 @@ public class OrderAdd extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle("Add order");
 
-        etxt2=findViewById(R.id.etxt2);
+        etxt2=findViewById(R.id.noofitems);
         etxt4=findViewById(R.id.etxt4);
         display_text=(TextView)findViewById(R.id.display_text);
 

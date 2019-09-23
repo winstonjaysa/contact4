@@ -8,7 +8,7 @@
     tools:context=".RoomReservation">
 
     <EditText
-        android:id="@+id/etxt1"
+        android:id="@+id/itemcategory"
         android:layout_width="200dp"
         android:layout_height="45dp"
         android:layout_marginTop="48dp"
@@ -39,14 +39,14 @@
         android:text="Room Type"
         android:textColor="#9a9a9a"
         android:textSize="18sp"
-        app:layout_constraintEnd_toStartOf="@+id/etxt1"
+        app:layout_constraintEnd_toStartOf="@+id/itemcategory"
         app:layout_constraintHorizontal_bias="0.68"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
 
     <TextView
-        android:id="@+id/textView11"
+        android:id="@+id/noofitems"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="42dp"
@@ -59,7 +59,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView10" />
 
     <EditText
-        android:id="@+id/etxt2"
+        android:id="@+id/noofitems"
         android:layout_width="200dp"
         android:layout_height="45dp"
         android:layout_marginStart="8dp"
@@ -78,8 +78,8 @@
         android:theme="@style/EditTextTheme"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/textView11"
-        app:layout_constraintTop_toBottomOf="@+id/etxt1" />
+        app:layout_constraintStart_toEndOf="@+id/noofitems"
+        app:layout_constraintTop_toBottomOf="@+id/itemcategory" />
 
 
     <TextView
@@ -93,7 +93,7 @@
         android:textColor="#9a9a9a"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView11" />
+        app:layout_constraintTop_toBottomOf="@+id/noofitems" />
 
     <EditText
         android:id="@+id/etxt3"
@@ -116,7 +116,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/textView12"
-        app:layout_constraintTop_toBottomOf="@+id/etxt2" />
+        app:layout_constraintTop_toBottomOf="@+id/noofitems" />
 
 
     <TextView

@@ -155,7 +155,7 @@ public class AccActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 //txt_icon_laundry.setTextColor(Color.parseColor("#fe435b"));
-                Intent intent=new Intent(AccActivity.this, UnderDevelopment.class);
+                Intent intent=new Intent(AccActivity.this, LaundryAdd.class);
                 startActivity(intent);
             }
         });

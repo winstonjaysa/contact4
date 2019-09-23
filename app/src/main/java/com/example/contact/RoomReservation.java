@@ -54,8 +54,8 @@ public class RoomReservation extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle("Edit Room Reservation");
 
-        etxt1 = findViewById(R.id.etxt1);
-        etxt2 = findViewById(R.id.etxt2);
+        etxt1 = findViewById(R.id.itemcategory);
+        etxt2 = findViewById(R.id.noofitems);
         etxt3 = findViewById(R.id.etxt3);
         etxt4 = findViewById(R.id.etxt4);
         etxt5 = findViewById(R.id.etxt5);

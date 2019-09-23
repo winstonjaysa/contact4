@@ -80,7 +80,7 @@ public class activity_Order_del_update extends AppCompatActivity {
 //        mUname = findViewById(R.id.date);
 //        mUname.setText(name);
 
-        mAmount = findViewById(R.id.etxt2);
+        mAmount = findViewById(R.id.noofitems);
         mAmount.setText(amount);
 
         date = (EditText) findViewById(R.id.date);
