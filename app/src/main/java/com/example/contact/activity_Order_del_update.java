@@ -186,11 +186,13 @@ public class activity_Order_del_update extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "You can't update this order.", Toast.LENGTH_SHORT).show();
                 } else if (extStatus.getText().toString().equals("0")) {
 
+                    int g=Integer.parseInt(mAmount.getText().toString());
+
                     if (TextUtils.isEmpty(meal_selected)) {
                         Toast.makeText(activity_Order_del_update.this, "please select a meal", Toast.LENGTH_LONG).show();
                     }else if (TextUtils.isEmpty(time_selected)) {
                         Toast.makeText(activity_Order_del_update.this, "please select time", Toast.LENGTH_LONG).show();
-                    }else if(TextUtils.isEmpty(mAmount.getText().toString())|| mAmount.getText().toString().equals(0)) {
+                    }else if((TextUtils.isEmpty(mAmount.getText().toString())) || (g==0) ) {
                         Toast.makeText(activity_Order_del_update.this, "please enter amount more than 0", Toast.LENGTH_LONG).show();
                     }else if(TextUtils.isEmpty(date.getText().toString()))
                         Toast.makeText(activity_Order_del_update.this,"please select date",Toast.LENGTH_LONG).show();

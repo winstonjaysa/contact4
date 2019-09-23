@@ -193,7 +193,9 @@ public class OrderAdd extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 try {
-                    if(TextUtils.isEmpty(etxt2.getText().toString())|| etxt2.getText().toString().equals(0))
+                    int g=Integer.parseInt(etxt2.getText().toString());
+
+                    if((TextUtils.isEmpty(etxt2.getText().toString()))|| (g==0))
                         Toast.makeText(OrderAdd.this,"please enter amount more than 0",Toast.LENGTH_LONG).show();
                     else if(TextUtils.isEmpty(meal_selected))
                         Toast.makeText(OrderAdd.this,"please select a meal",Toast.LENGTH_LONG).show();
