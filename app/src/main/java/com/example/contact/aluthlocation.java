@@ -121,6 +121,8 @@ public class aluthlocation extends AppCompatActivity {
 
 
                         Toast.makeText(aluthlocation.this,"Location saved",Toast.LENGTH_LONG).show();
+                        finish();
+                        return;
 
 
                     }
