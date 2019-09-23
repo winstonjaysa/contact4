@@ -137,7 +137,7 @@ public class RecyclerView_Config {
                 } else if (orderDetails.getMeal().equals("Grilled cheese sandwich")) {
                     meal_pic.setBackgroundResource(R.drawable.order_grilled_cheese);
                 } else if (orderDetails.getMeal().equals("Thai chicken noodles")) {
-                    meal_pic.setBackgroundResource(R.drawable.order_thai_chicken_noodles);
+                    meal_pic.setBackgroundResource(R.drawable.order_chicken_noodles);
                 }
                 //juice
                 else if (orderDetails.getMeal().equals("Watermelon juice")) {

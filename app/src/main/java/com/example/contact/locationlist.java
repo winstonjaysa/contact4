@@ -5,21 +5,32 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
 
 import java.util.List;
 
 public class locationlist extends AppCompatActivity {
 
     private RecyclerView mRecycleview;
+    private Button customAddButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_locationlist);
         mRecycleview = (RecyclerView) findViewById(R.id.rv);
+
+        Typeface font=Typeface.createFromAsset(getAssets(),"fa-solid-900.ttf");
+
+        customAddButton=(Button)findViewById(R.id.customAddButton);
+        customAddButton.setTypeface(font);
+        customAddButton.setText("\uf067");
+
+
         new controller().readlocation(new controller.datastatus() {
             @Override
             public void Dataisloaded(List<location> locations, List<String> keys) {
