@@ -89,21 +89,6 @@ public class OrderAdd extends AppCompatActivity {
         });
 
 
-        myRef= FirebaseDatabase.getInstance().getReference().child("Order");
-        myRef.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                if(dataSnapshot.exists())
-                    maxId=(dataSnapshot.getChildrenCount());
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
-
-
         //meal spinner list
         ArrayAdapter<CharSequence> adapter=ArrayAdapter.createFromResource(this,R.array.meal,R.layout.custom_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -189,6 +174,32 @@ public class OrderAdd extends AppCompatActivity {
 
         //editText2.addTextChangedListener(autoAddTextWatcher);
 
+
+
+
+
+
+
+
+
+        //uid number
+
+//        myRef= FirebaseDatabase.getInstance().getReference().child("Order");
+//        myRef.addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+//                if(dataSnapshot.exists())
+//                    maxId=(dataSnapshot.getChildrenCount());
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError databaseError) {
+//
+//            }
+//        });
+
+        //end
+
         btnsave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -209,8 +220,10 @@ public class OrderAdd extends AppCompatActivity {
                         orderDetails.setDate(date.getText().toString().trim());
                         orderDetails.setStatus("0");
                         orderDetails.setUsername(uname);
-                        //myRef.push().setValue(orderDetails);
-                        myRef.child(String.valueOf(maxId+1)).setValue(orderDetails);
+
+                        //myRef.child(String.valueOf(maxId+1)).setValue(orderDetails);
+                        myRef.push().setValue(orderDetails);
+
                         Toast.makeText(getApplicationContext(),"Order added successfully.",Toast.LENGTH_SHORT).show();
                         clearControl();
                         finish();
