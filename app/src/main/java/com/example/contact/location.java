@@ -5,20 +5,31 @@ public class location {
         private String attraction;
         private String budget;
         private String name;
+        private String username;
 
-        
+
+
 
         public location() {
         }
 
 
-        public location(String attraction, String budget, String name) {
+        public location(String attraction, String budget, String name,String username) {
             this.attraction = attraction;
             this.budget = budget;
             this.name = name;
         }
 
-        public String getAttraction() {
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+
+    public String getAttraction() {
             return attraction;
         }
 
