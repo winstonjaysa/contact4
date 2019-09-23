@@ -52,8 +52,8 @@
             android:name=".RoomReservation"
             android:parentActivityName=".dashboard" />
         <activity
-            android:name=".ViewActivity"
-            android:parentActivityName=".MainActivity" />
+            android:name=".RoomReservation_Edit"
+            android:parentActivityName=".AccActivity" />
 
         <meta-data
             android:name="preloaded_fonts"

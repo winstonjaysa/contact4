@@ -14,10 +14,27 @@
     <string name="Slogan">the great advantage of a hotel is that it is a refuge from home life</string>
 
     <string-array name="meal">
+
         <item>Pizza</item>
         <item>Cup Cake</item>
         <item>BBQ</item>
         <item>Tacos</item>
+        <item>Soup with sandwich</item>
+        <item>Vegetarian pasta</item>
+        <item>Grilled cheese sandwich</item>
+        <item>Thai chicken noodles</item>
+
+        <item></item>
+        <item>Watermelon juice</item>
+        <item>Coffee</item>
+
+        <item></item>
+        <item>Pizza</item>
+        <item>Cup Cake</item>
+        <item>BBQ</item>
+        <item>Pizza</item>
+        <item>Cup Cake</item>
+        <item>BBQ</item>
     </string-array>
 
     <string-array name="time">

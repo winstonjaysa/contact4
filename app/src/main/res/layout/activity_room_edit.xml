@@ -5,10 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#141312"
-    tools:context=".RoomReservation">
+    tools:context=".RoomReservation_Edit">
 
     <EditText
-        android:id="@+id/etxt1"
+        android:id="@+id/rType"
         android:layout_width="200dp"
         android:layout_height="45dp"
         android:layout_marginTop="48dp"
@@ -39,7 +39,7 @@
         android:text="Room Type"
         android:textColor="#9a9a9a"
         android:textSize="18sp"
-        app:layout_constraintEnd_toStartOf="@+id/etxt1"
+        app:layout_constraintEnd_toStartOf="@+id/rType"
         app:layout_constraintHorizontal_bias="0.68"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -59,7 +59,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView10" />
 
     <EditText
-        android:id="@+id/etxt2"
+        android:id="@+id/out_date"
         android:layout_width="200dp"
         android:layout_height="45dp"
         android:layout_marginStart="8dp"
@@ -79,7 +79,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/textView11"
-        app:layout_constraintTop_toBottomOf="@+id/etxt1" />
+        app:layout_constraintTop_toBottomOf="@+id/rType" />
 
 
     <TextView
@@ -96,7 +96,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView11" />
 
     <EditText
-        android:id="@+id/etxt3"
+        android:id="@+id/in_date"
         android:layout_width="200dp"
         android:layout_height="45dp"
         android:layout_marginStart="8dp"
@@ -116,7 +116,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/textView12"
-        app:layout_constraintTop_toBottomOf="@+id/etxt2" />
+        app:layout_constraintTop_toBottomOf="@+id/out_date" />
 
 
     <TextView
@@ -133,7 +133,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView12" />
 
     <EditText
-        android:id="@+id/etxt4"
+        android:id="@+id/adults"
         android:layout_width="200dp"
         android:layout_height="45dp"
         android:layout_marginStart="8dp"
@@ -153,7 +153,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/textView13"
-        app:layout_constraintTop_toBottomOf="@+id/etxt3" />
+        app:layout_constraintTop_toBottomOf="@+id/in_date" />
 
 
     <TextView
@@ -170,7 +170,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView13" />
 
     <EditText
-        android:id="@+id/etxt5"
+        android:id="@+id/children"
         android:layout_width="200dp"
         android:layout_height="45dp"
         android:layout_marginTop="36dp"
@@ -189,7 +189,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etxt4" />
+        app:layout_constraintTop_toBottomOf="@+id/adults" />
 
     <Button
         android:id="@+id/btnCalc"
@@ -210,12 +210,12 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.882"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etxt5"
+        app:layout_constraintTop_toBottomOf="@+id/children"
         app:layout_constraintVertical_bias="0.498"
-         android:textAllCaps="false"/>
+        android:textAllCaps="false"/>
 
     <Button
-        android:id="@+id/btnView"
+        android:id="@+id/btndelete"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -223,8 +223,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         android:background="@drawable/round_corners_button"
-        android:onClick="viewdetails"
-        android:text="@string/view"
+        android:text="Delete"
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -232,7 +231,7 @@
         app:layout_constraintEnd_toStartOf="@+id/btnCalc"
         app:layout_constraintHorizontal_bias="0.24"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etxt5" />
+        app:layout_constraintTop_toBottomOf="@+id/children" />
 
     <Button
         android:id="@+id/btnUpdate"
@@ -240,7 +239,6 @@
         android:layout_height="wrap_content"
         android:background="@drawable/button_full_width_secondary"
         android:fontFamily="@font/calligraffitti"
-        android:onClick="accgo"
         android:paddingTop="5dp"
         android:text="Book Now"
         android:textColor="@color/white"
@@ -265,7 +263,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etxt5"
+        app:layout_constraintTop_toBottomOf="@+id/children"
         app:layout_constraintVertical_bias="0.282" />
 
 

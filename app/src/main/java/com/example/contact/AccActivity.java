@@ -21,8 +21,7 @@ import androidx.core.graphics.drawable.RoundedBitmapDrawableFactory;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
+import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -34,18 +33,24 @@ import com.jgabrielfreitas.core.BlurImageView;
 
 public class AccActivity extends AppCompatActivity {
     TextView tv,tv2,tv3,tv4,tv5,tv6,tv7,tv8,tv9,tv10,navi_txt_back,navi_txt_menu,txt_icon_order,txt_icon_room,txt_icon_travel,txt_icon_laundry,txt_icon_bill;
+    TextView txt_username;
     LinearLayout li_order,li_room,li_bill,li_travel,li_laundry;
     FrameLayout fragmentContainer;
-    private FirebaseUser mCurrentUser;
-    private DatabaseReference mDatabaseUsers;
+
     private FirebaseAuth mAuth;
+    private FirebaseAuth.AuthStateListener mAuthListener;
     private DatabaseReference mDatabase;
+    Message message;
+
+    DatabaseReference databaseReference;
+
+    FirebaseUser user;
+    String uid,name;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_acc);
-
-
 
         ActionBar actionBar=getSupportActionBar();
         actionBar.hide();
@@ -81,40 +86,25 @@ public class AccActivity extends AppCompatActivity {
         ImageView imgview=(ImageView) findViewById(R.id.img1);
 
 
-        mCurrentUser = mAuth.getCurrentUser();
-        mDatabaseUsers = FirebaseDatabase.getInstance().getReference().child("Users").child(mCurrentUser.getUid());
-        final DatabaseReference newPost = mDatabase.push();
+        txt_username=(TextView) findViewById(R.id.txt_username);
+        user= FirebaseAuth.getInstance().getCurrentUser();
+        uid=user.getUid();
 
 
+        databaseReference= FirebaseDatabase.getInstance().getReference();
 
-
-        mDatabaseUsers.addValueEventListener(new ValueEventListener() {
+        databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-
-                newPost.child("username").setValue(dataSnapshot.child("Name").getValue()).addOnCompleteListener(new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-
-                     setUsername(mDatabaseUsers.getKey());
-                    }
-                });
+                name=dataSnapshot.child("Users").child(uid).child("Name").getValue(String.class);
+                txt_username.setText(name);
             }
-
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
 
             }
         });
-
-
-
-
-
-
-
-
 
 
         navi_txt_back.setOnClickListener(new View.OnClickListener() {
@@ -137,6 +127,7 @@ public class AccActivity extends AppCompatActivity {
             public void onClick(View view) {
                 //txt_icon_order.setTextColor(Color.parseColor("#fe435b"));
                 Intent intent=new Intent(AccActivity.this,OrderMain.class);
+                //intent.putExtra("uname",name);
                 startActivity(intent);
             }
         });
@@ -144,7 +135,7 @@ public class AccActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 //txt_icon_room.setTextColor(Color.parseColor("#fe435b"));
-                Intent intent=new Intent(AccActivity.this,RoomReservation.class);
+                Intent intent=new Intent(AccActivity.this,RoomReservation_Edit.class);
                 startActivity(intent);
             }
         });
@@ -152,7 +143,7 @@ public class AccActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 //txt_icon_travel.setTextColor(Color.parseColor("#fe435b"));
-                Intent intent=new Intent(AccActivity.this, locationlist.class);
+                Intent intent=new Intent(AccActivity.this, UnderDevelopment.class);
                 startActivity(intent);
 
 //                pro_pic_view_fragment fragment23=new pro_pic_view_fragment();
@@ -231,20 +222,6 @@ public class AccActivity extends AppCompatActivity {
 
     }
 
-
-    public void setUsername(String username) {
-
-
-
-        TextView username_content = (TextView) findViewById(R.id.usernametext);
-        username_content.setText(username);
-
-    }
-
-
-
-
-
     public void openFragment(){
         pro_pic_view_fragment fragment=pro_pic_view_fragment.newInstance();
         FragmentManager fragmentManager=getSupportFragmentManager();
@@ -254,5 +231,9 @@ public class AccActivity extends AppCompatActivity {
         transaction.add(R.id.fragmentContainer,fragment,"BLANCK_FRAGMENT").commit();
 
     }
+
+
+
 }
+
 

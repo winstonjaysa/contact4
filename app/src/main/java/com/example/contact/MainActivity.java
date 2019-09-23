@@ -10,11 +10,9 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
-import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.contact.Prevalent.Prevalent;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -25,7 +23,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import io.paperdb.Paper;
+import java.lang.reflect.Member;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -35,8 +33,7 @@ public class MainActivity extends AppCompatActivity {
     private EditText emailText;
     private EditText passText;
     private Button btnOpen;
-    private CheckBox cb;
-
+    Message message;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,10 +42,6 @@ public class MainActivity extends AppCompatActivity {
 
         emailText = (EditText) findViewById(R.id.email);
         passText = (EditText) findViewById(R.id.password);
-
-
-        cb = (CheckBox) findViewById(R.id.cb);
-        Paper.init(this);
 
         mAuth = FirebaseAuth.getInstance();
         mDatabase = FirebaseDatabase.getInstance().getReference().child("Users");
@@ -63,22 +56,13 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+
     public void loginbtnclicked (View view){
 
         String email = emailText.getText().toString().trim();
         String password = passText.getText().toString().trim();
 
-        if(cb.isChecked()){
-
-          Paper.book().write(Prevalent.useremail,email);
-          Paper.book().write(Prevalent.password,password);
-
-
-
-        }
-
         if(!TextUtils.isEmpty(email) && !TextUtils.isEmpty(password)){
-
 
             mAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                 @Override
@@ -110,9 +94,11 @@ public class MainActivity extends AppCompatActivity {
         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
             if(dataSnapshot.hasChild(user_id)){
 
+
                 Intent dashIntent = new Intent(MainActivity.this,dashboard.class);
                 startActivity(dashIntent);
-
+//                message.setUsername(dataSnapshot.child("Users").child(user_id).getValue().toString());
+                //dashIntent.putExtra("uid",user_id);
             }
         }
 

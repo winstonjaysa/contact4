@@ -19,6 +19,8 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -37,6 +39,11 @@ public class OrderAdd extends AppCompatActivity {
     String meal_selected,time_selected;
     DatePickerDialog datePickerDialog;
     long maxId=0;
+
+    DatabaseReference databaseReference;
+
+    FirebaseUser user;
+    String uid,uname;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,6 +70,24 @@ public class OrderAdd extends AppCompatActivity {
         btnsave=findViewById(R.id.btnCalc);
 
         orderDetails=new OrderDetails();
+
+
+        user= FirebaseAuth.getInstance().getCurrentUser();
+        uid=user.getUid();
+        databaseReference= FirebaseDatabase.getInstance().getReference();
+
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                 uname=dataSnapshot.child("Users").child(uid).child("Name").getValue(String.class);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
 
         myRef= FirebaseDatabase.getInstance().getReference().child("Order");
         myRef.addValueEventListener(new ValueEventListener() {
@@ -168,16 +193,22 @@ public class OrderAdd extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 try {
-                    if(TextUtils.isEmpty(etxt2.getText().toString()))
-                        Toast.makeText(OrderAdd.this,"please enter amount",Toast.LENGTH_LONG).show();
+                    int g=Integer.parseInt(etxt2.getText().toString());
+
+                    if((TextUtils.isEmpty(etxt2.getText().toString()))|| (g==0))
+                        Toast.makeText(OrderAdd.this,"please enter amount more than 0",Toast.LENGTH_LONG).show();
+                    else if(TextUtils.isEmpty(meal_selected))
+                        Toast.makeText(OrderAdd.this,"please select a meal",Toast.LENGTH_LONG).show();
+
                     else if(TextUtils.isEmpty(date.getText().toString()))
                         Toast.makeText(OrderAdd.this,"please enter date",Toast.LENGTH_LONG).show();
                     else {
-                        orderDetails.setName(meal_selected);
+                        orderDetails.setMeal(meal_selected);
                         orderDetails.setAmount(etxt2.getText().toString().trim());
                         orderDetails.setTime(time_selected);
-                        orderDetails.setUname(date.getText().toString().trim());
+                        orderDetails.setDate(date.getText().toString().trim());
                         orderDetails.setStatus("0");
+                        orderDetails.setUsername(uname);
                         //myRef.push().setValue(orderDetails);
                         myRef.child(String.valueOf(maxId+1)).setValue(orderDetails);
                         Toast.makeText(getApplicationContext(),"Order added successfully.",Toast.LENGTH_SHORT).show();
