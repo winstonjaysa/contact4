@@ -112,7 +112,7 @@ public class location_u_d extends AppCompatActivity {
                     @Override
                     public void Dataisupdated() {
 
-                        Toast.makeText(location_u_d.this, "Update succesfull", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(location_u_d.this, "Update succesful", Toast.LENGTH_SHORT).show();
                         
                         
                     }

@@ -18,6 +18,7 @@ public class location {
             this.attraction = attraction;
             this.budget = budget;
             this.name = name;
+            this.username = username;
         }
 
     public String getUsername() {
