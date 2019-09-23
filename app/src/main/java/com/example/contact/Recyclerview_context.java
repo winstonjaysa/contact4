@@ -1,7 +1,9 @@
 package com.example.contact;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
@@ -45,12 +47,26 @@ public class Recyclerview_context {
             title2 = (TextView) itemView.findViewById(R.id.tv2);
             title3 = (TextView) itemView.findViewById(R.id.tv3);
 
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(mcontext,location_u_d.class);
+                    intent.putExtra("key",key);
+                    intent.putExtra("name",title1.getText().toString());
+                    intent.putExtra("attraction",title2.getText().toString());
+                    intent.putExtra("budget",title3.getText().toString());
+
+                    mcontext.startActivity(intent);
+
+                }
+            });
+
         }
 
         public void bind(location location, String key) {
             title1.setText(location.getName());
             title2.setText(location.getAttraction());
-           // title3.setText(location.getBudget());
+            title3.setText(location.getBudget());
             this.key = key;
 
 

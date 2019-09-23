@@ -2,6 +2,7 @@ package com.example.contact;
 
 import androidx.annotation.NonNull;
 
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -63,8 +64,48 @@ public class controller {
 
     }
 
+    public void addlocation(location location,final datastatus datastatus){
+
+        String key = mReferenceLocation.push().getKey();
+        mReferenceLocation.child(key).setValue(location).addOnSuccessListener(new OnSuccessListener<Void>() {
+            @Override
+            public void onSuccess(Void aVoid) {
+
+                datastatus.Dataisinserted();
+
+
+            }
+        });
+
+    }
+
+    public void updatelocation(String key,location location,final datastatus datastatus){
+
+        mReferenceLocation.child(key).setValue(location).addOnSuccessListener(new OnSuccessListener<Void>() {
+            @Override
+            public void onSuccess(Void aVoid) {
+
+                datastatus.Dataisupdated();
 
 
 
+            }
+        });
+
+
+    }
+
+    public void deletelocation(String key,final datastatus datastatus){
+
+        mReferenceLocation.child(key).setValue(null).addOnSuccessListener(new OnSuccessListener<Void>() {
+            @Override
+            public void onSuccess(Void aVoid) {
+
+                datastatus.Dataisdeleted();
+
+            }
+        });
+
+    }
 
 }
